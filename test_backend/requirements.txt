@@ -1,0 +1,2 @@
+quart>=0.16.1
+quart-cors>=0.2.0  # Example, adjust version as necessary
