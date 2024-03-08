@@ -143,17 +143,24 @@ class DTSVisualizationAppTwo extends StatelessWidget {
     Layer([], 500, 500, 450, 400),
     Layer([
       // Waypoint(630, 470, 4),
-    ], 610, 630, 450, 470)
-    // Layer([
-    //   Waypoint(80, 530, 2),
-    //   Waypoint(80, 580, 2),
-    //   Waypoint(100, 600, 2),
-    //   Waypoint(200, 600, 2),
-    // ], 0, 300, 0, 300),
-    // Layer([
-    //   Waypoint(150, 600, 3),
-    //   Waypoint(150, 650, 3),
-    // ], 0, 300, 0, 300),
+    ], 610, 630, 450, 470),
+    Layer([
+     // Waypoint(80, 530, 2),
+     // Waypoint(80, 580, 2),
+     // Waypoint(100, 600, 2),
+     // Waypoint(200, 600, 2),
+    ], 100, 200, 600, 600),
+    Layer([
+
+    ], 80, 100, 580, 600),
+    Layer([], 80, 80, 530, 580),
+    Layer([
+     // Waypoint(150, 600, 3),
+     // Waypoint(150, 650, 3),
+    ], 150, 150, 600, 650),//dts
+    Layer([], 150, 170, 630, 630),//dts
+    Layer([], 230, 230, 600, 650),//dts
+    Layer([], 230, 250, 630, 630),//dts
   ];
 
   final List<Station> stations = [
@@ -162,8 +169,11 @@ class DTSVisualizationAppTwo extends StatelessWidget {
   ];
 
   final List<DTS> dtsList = [
-    DTS(300, 650),
-    DTS(150, 650),
+    DTS(300, 650,'Dts one'),
+    DTS(150, 650,'Dts two'),
+    DTS(170, 630,'Dts three'),
+    DTS(230, 650,'Dts four'),
+    DTS(250, 630,'Dts five'),
   ];
 
   @override
@@ -268,7 +278,7 @@ class DTSVisualizationPainter extends CustomPainter {
       painterTwo.text = TextSpan(
         text: station.name,
         style: const TextStyle(
-          color: Colors.white,
+          color: Colors.blue,
           fontSize: 13.0,
         ),
       );
@@ -283,10 +293,33 @@ class DTSVisualizationPainter extends CustomPainter {
 
     }
 
+
+    // for dts name start
+    TextPainter painterThree;
+    painterThree = TextPainter(
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+   // for dts name end
     // Draw DTS
     for (final dts in dtsList) {
       paint.color = Colors.black;
       canvas.drawCircle(Offset(dts.x, dts.y), 4, paint);
+     // for dts name start
+      painterThree.text = TextSpan(
+        text: dts.name,
+        style: const TextStyle(
+          color: Colors.blue,
+          fontSize: 10.0,
+        ),
+      );
+      Offset positionThree = Offset(
+        dts.x + 8.0,
+        dts.y ,
+      );
+      painterThree.layout();
+      painterThree.paint(canvas, positionThree);
+ // for dts name end
     }
   }
 

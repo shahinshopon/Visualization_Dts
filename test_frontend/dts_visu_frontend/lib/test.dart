@@ -32,8 +32,8 @@ class Station {
 class DTS {
   final double x;
   final double y;
-
-  DTS(this.x, this.y);
+  final String name;
+  DTS(this.x, this.y,this.name);
 }
 
 // class DTSVisualizationApp extends StatelessWidget {
