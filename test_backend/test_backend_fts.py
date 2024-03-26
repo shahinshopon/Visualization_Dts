@@ -21,7 +21,7 @@ async def send_periodic_messages(ws):
         except asyncio.CancelledError:
             # The connection was closed, so cancel this task
             break
-        await asyncio.sleep(1)  # Wait for 15 seconds before sending the next message
+        await asyncio.sleep(1)  # Wait for 1 seconds before sending the next message
 
 
 # RESTful API endpoint
