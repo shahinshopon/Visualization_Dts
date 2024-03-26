@@ -1,0 +1,2343 @@
+{
+  "waypoints": [
+    {
+      "x": 162829,
+      "y": 175637,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163772,
+      "y": 176586,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 169516,
+      "y": 142583,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 173705,
+      "y": 142581,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 173709,
+      "y": 144260,
+      "isStation": true,
+      "stationName": "Waldrich1_1",
+      "layer": "All"
+    },
+    {
+      "x": 162663,
+      "y": 147036,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 162673,
+      "y": 151972,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 168171,
+      "y": 153808,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 173736,
+      "y": 153834,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 173725,
+      "y": 151885,
+      "isStation": true,
+      "stationName": "Waldrich1_2",
+      "layer": "All"
+    },
+    {
+      "x": 164152,
+      "y": 153820,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163398,
+      "y": 154749,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163731,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 164588,
+      "y": 154688,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 166272,
+      "y": 153807,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163731,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163738,
+      "y": 159976,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163749,
+      "y": 164994,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163767,
+      "y": 173034,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 161171,
+      "y": 175642,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 157051,
+      "y": 175658,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 157041,
+      "y": 173151,
+      "isStation": true,
+      "stationName": "Halle5_4",
+      "layer": "All"
+    },
+    {
+      "x": 170674,
+      "y": 175609,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 175103,
+      "y": 175603,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 175091,
+      "y": 172887,
+      "isStation": true,
+      "stationName": "QS2",
+      "layer": "All"
+    },
+    {
+      "x": 170655,
+      "y": 172912,
+      "isStation": true,
+      "stationName": "QS1",
+      "layer": "All"
+    },
+    {
+      "x": 157896,
+      "y": 177576,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 123306,
+      "y": 196237,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 118832,
+      "y": 185399,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 122333,
+      "y": 185402,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 123305,
+      "y": 190148,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 167092,
+      "y": 142591,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163596,
+      "y": 144179,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 162640,
+      "y": 143288,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 174467,
+      "y": 175603,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 162805,
+      "y": 167843,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163756,
+      "y": 168793,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 115798,
+      "y": 185428,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 113897,
+      "y": 185422,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 112131,
+      "y": 184718,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 110476,
+      "y": 183786,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 108843,
+      "y": 182812,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 107192,
+      "y": 181865,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 105293,
+      "y": 181904,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 103393,
+      "y": 181934,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 101496,
+      "y": 181968,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 99595,
+      "y": 182007,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 97695,
+      "y": 182043,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 95798,
+      "y": 182081,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 93893,
+      "y": 182118,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 92451,
+      "y": 180882,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 91005,
+      "y": 179653,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90109,
+      "y": 177973,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90085,
+      "y": 176073,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 161001,
+      "y": 163337,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 158502,
+      "y": 163306,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 155985,
+      "y": 161397,
+      "isStation": true,
+      "stationName": "Fooke_2",
+      "layer": "All"
+    },
+    {
+      "x": 160973,
+      "y": 168782,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 158534,
+      "y": 169525,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 156032,
+      "y": 169538,
+      "isStation": true,
+      "stationName": "Fooke_1",
+      "layer": "All"
+    },
+    {
+      "x": 163748,
+      "y": 163771,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 167784,
+      "y": 179442,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 167775,
+      "y": 180559,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 167787,
+      "y": 186270,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 170872,
+      "y": 186348,
+      "isStation": true,
+      "stationName": "QS_Nacharbeit",
+      "layer": "All"
+    },
+    {
+      "x": 170894,
+      "y": 182457,
+      "isStation": true,
+      "stationName": "QS_Folieren",
+      "layer": "All"
+    },
+    {
+      "x": 167748,
+      "y": 175637,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 169042,
+      "y": 169267,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 120635,
+      "y": 193997,
+      "isStation": true,
+      "stationName": "Halle5_11",
+      "layer": "All"
+    },
+    {
+      "x": 120647,
+      "y": 189502,
+      "isStation": true,
+      "stationName": "Halle5_12",
+      "layer": "All"
+    },
+    {
+      "x": 122561,
+      "y": 191398,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 122573,
+      "y": 195891,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 120599,
+      "y": 179828,
+      "isStation": true,
+      "stationName": "Halle5_10",
+      "layer": "All"
+    },
+    {
+      "x": 120643,
+      "y": 173912,
+      "isStation": true,
+      "stationName": "Halle5_9",
+      "layer": "All"
+    },
+    {
+      "x": 123409,
+      "y": 175838,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 123404,
+      "y": 177744,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 123342,
+      "y": 181737,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 130742,
+      "y": 180448,
+      "isStation": true,
+      "stationName": "Halle5_7",
+      "layer": "All"
+    },
+    {
+      "x": 135234,
+      "y": 180471,
+      "isStation": true,
+      "stationName": "Halle5_8",
+      "layer": "All"
+    },
+    {
+      "x": 133336,
+      "y": 182741,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 128850,
+      "y": 182744,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 123282,
+      "y": 186352,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 86166,
+      "y": 187929,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 85217,
+      "y": 187938,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 84264,
+      "y": 187945,
+      "isStation": true,
+      "stationName": "IBN",
+      "layer": "All"
+    },
+    {
+      "x": 157249,
+      "y": 145473,
+      "isStation": true,
+      "stationName": "Waldrich3_1",
+      "layer": "All"
+    },
+    {
+      "x": 159169,
+      "y": 145477,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 160783,
+      "y": 145335,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 157246,
+      "y": 152812,
+      "isStation": true,
+      "stationName": "Waldrich3_2",
+      "layer": "All"
+    },
+    {
+      "x": 159379,
+      "y": 152822,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 160485,
+      "y": 152835,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 161813,
+      "y": 152971,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 146000,
+      "y": 185395,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 173176,
+      "y": 169617,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 174081,
+      "y": 169631,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 175031,
+      "y": 169637,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 175982,
+      "y": 169638,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 176926,
+      "y": 169643,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 177876,
+      "y": 169652,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 178820,
+      "y": 169662,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 179776,
+      "y": 169667,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 179789,
+      "y": 167560,
+      "isStation": true,
+      "stationName": "Waldrich2_2",
+      "layer": "All"
+    },
+    {
+      "x": 183238,
+      "y": 169666,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 184184,
+      "y": 169664,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 185134,
+      "y": 169668,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 186082,
+      "y": 169667,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 187035,
+      "y": 169669,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 187040,
+      "y": 167658,
+      "isStation": true,
+      "stationName": "Waldrich2_1",
+      "layer": "All"
+    },
+    {
+      "x": 171626,
+      "y": 175606,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 176055,
+      "y": 175612,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 168413,
+      "y": 180565,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 167769,
+      "y": 176586,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 167764,
+      "y": 174691,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 166467,
+      "y": 174696,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 165122,
+      "y": 174696,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 168519,
+      "y": 175621,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 167566,
+      "y": 175619,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 164712,
+      "y": 175636,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 163743,
+      "y": 160925,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 164699,
+      "y": 161869,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 168299,
+      "y": 162108,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 169263,
+      "y": 162097,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 170207,
+      "y": 162105,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 173752,
+      "y": 162135,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 174711,
+      "y": 162144,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 170211,
+      "y": 164649,
+      "isStation": true,
+      "stationName": "Halle4_5",
+      "layer": "All"
+    },
+    {
+      "x": 170196,
+      "y": 159571,
+      "isStation": true,
+      "stationName": "Halle4_7",
+      "layer": "All"
+    },
+    {
+      "x": 174720,
+      "y": 164692,
+      "isStation": true,
+      "stationName": "Halle4_6",
+      "layer": "All"
+    },
+    {
+      "x": 174709,
+      "y": 159605,
+      "isStation": true,
+      "stationName": "Halle4_8",
+      "layer": "All"
+    },
+    {
+      "x": 175091,
+      "y": 167496,
+      "isStation": true,
+      "stationName": "Halle4_9",
+      "layer": "All"
+    },
+    {
+      "x": 167139,
+      "y": 182475,
+      "isStation": true,
+      "stationName": "Parken_Folieren",
+      "layer": "All"
+    },
+    {
+      "x": 157896,
+      "y": 177576,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 97250,
+      "y": 153259,
+      "isStation": true,
+      "stationName": "MaxCut4_Platten",
+      "layer": "All"
+    },
+    {
+      "x": 97245,
+      "y": 155292,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 99887,
+      "y": 155839,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 100839,
+      "y": 155836,
+      "isStation": true,
+      "stationName": "MaxCut4_Barren",
+      "layer": "All"
+    },
+    {
+      "x": 96285,
+      "y": 156380,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 93433,
+      "y": 156408,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 92494,
+      "y": 156418,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 154339,
+      "y": 181136,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 154979,
+      "y": 180429,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 155621,
+      "y": 179725,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 156259,
+      "y": 179022,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 125853,
+      "y": 185389,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 130802,
+      "y": 185383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 131756,
+      "y": 185381,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 132704,
+      "y": 185383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 133647,
+      "y": 185382,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 134602,
+      "y": 185383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 135550,
+      "y": 185383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 136501,
+      "y": 185388,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 137444,
+      "y": 185386,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 138399,
+      "y": 185392,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 139350,
+      "y": 185387,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 140298,
+      "y": 185391,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 141256,
+      "y": 185385,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 142200,
+      "y": 185386,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 143166,
+      "y": 185386,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 142200,
+      "y": 185386,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 145050,
+      "y": 185389,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152757,
+      "y": 179526,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152758,
+      "y": 178578,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152760,
+      "y": 177628,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152759,
+      "y": 176680,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152760,
+      "y": 175724,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152769,
+      "y": 174779,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152775,
+      "y": 173825,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152755,
+      "y": 172878,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 150679,
+      "y": 172850,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 148145,
+      "y": 172866,
+      "isStation": true,
+      "stationName": "Fooke_2_2",
+      "layer": "All"
+    },
+    {
+      "x": 99924,
+      "y": 173586,
+      "isStation": true,
+      "stationName": "MaxCut5_Barren",
+      "layer": "All"
+    },
+    {
+      "x": 98021,
+      "y": 173580,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 96124,
+      "y": 173582,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 94221,
+      "y": 173574,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 92314,
+      "y": 173573,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 95173,
+      "y": 173576,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 97071,
+      "y": 173581,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 98972,
+      "y": 173586,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 100873,
+      "y": 173592,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90124,
+      "y": 179878,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90142,
+      "y": 181775,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90168,
+      "y": 183669,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90181,
+      "y": 184626,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90156,
+      "y": 182721,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90135,
+      "y": 180823,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90112,
+      "y": 178923,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 83325,
+      "y": 187949,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 82374,
+      "y": 187960,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 81421,
+      "y": 187963,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 80470,
+      "y": 187972,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 79520,
+      "y": 187972,
+      "isStation": true,
+      "stationName": "Rollenbahn_Besaeumen",
+      "layer": "All"
+    },
+    {
+      "x": 89108,
+      "y": 174181,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 96079,
+      "y": 155844,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 98935,
+      "y": 155842,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 93433,
+      "y": 156408,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 89134,
+      "y": 177034,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90095,
+      "y": 177022,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 87234,
+      "y": 177045,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 86281,
+      "y": 177058,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 85334,
+      "y": 177066,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 84383,
+      "y": 177075,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 83432,
+      "y": 177077,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 82484,
+      "y": 177090,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 81536,
+      "y": 177097,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 80587,
+      "y": 177097,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 79637,
+      "y": 177119,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 78686,
+      "y": 177125,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 77736,
+      "y": 177131,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 76784,
+      "y": 177135,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75846,
+      "y": 177142,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 74882,
+      "y": 177153,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75824,
+      "y": 176191,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75820,
+      "y": 175242,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75809,
+      "y": 174290,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75801,
+      "y": 173341,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75795,
+      "y": 172391,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75791,
+      "y": 171438,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75780,
+      "y": 170484,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75773,
+      "y": 169535,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75768,
+      "y": 168589,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75765,
+      "y": 167637,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75755,
+      "y": 166689,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75749,
+      "y": 165736,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75743,
+      "y": 164787,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75736,
+      "y": 163836,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75730,
+      "y": 162887,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75724,
+      "y": 161936,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75718,
+      "y": 160988,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75711,
+      "y": 160034,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75706,
+      "y": 159085,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 75698,
+      "y": 158135,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 76657,
+      "y": 159076,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 77606,
+      "y": 159067,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 78558,
+      "y": 159060,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 79510,
+      "y": 159051,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 80459,
+      "y": 159045,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 81409,
+      "y": 159036,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 82362,
+      "y": 159029,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 83314,
+      "y": 159023,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 84257,
+      "y": 159016,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 85211,
+      "y": 159005,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 86161,
+      "y": 158997,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 87110,
+      "y": 158990,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 88057,
+      "y": 158983,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 89022,
+      "y": 158975,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 89996,
+      "y": 158968,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90942,
+      "y": 158958,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 132914,
+      "y": 186853,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 132916,
+      "y": 187805,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 132918,
+      "y": 188758,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 132920,
+      "y": 189704,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 132921,
+      "y": 190657,
+      "isStation": true,
+      "stationName": "Station_4_Auslagern",
+      "layer": "All"
+    },
+    {
+      "x": 123300,
+      "y": 193203,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 124233,
+      "y": 193194,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 125182,
+      "y": 193192,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 126131,
+      "y": 193181,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 127088,
+      "y": 193175,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 128042,
+      "y": 193167,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 128989,
+      "y": 193162,
+      "isStation": true,
+      "stationName": "Station_4_Einlagern",
+      "layer": "All"
+    },
+    {
+      "x": 92192,
+      "y": 157683,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 123307,
+      "y": 192055,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 123298,
+      "y": 188244,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 96675,
+      "y": 172377,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 96707,
+      "y": 170480,
+      "isStation": true,
+      "stationName": "MaxCut5_Platten",
+      "layer": "All"
+    },
+    {
+      "x": 90521,
+      "y": 172720,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90478,
+      "y": 170826,
+      "isStation": true,
+      "stationName": "MaxCut1_Platten",
+      "layer": "All"
+    },
+    {
+      "x": 77331,
+      "y": 158370,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 77330,
+      "y": 157421,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 77330,
+      "y": 156472,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 77332,
+      "y": 155523,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 77342,
+      "y": 154574,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 77332,
+      "y": 152676,
+      "isStation": true,
+      "stationName": "MaxCut2_Platten",
+      "layer": "All"
+    },
+    {
+      "x": 71891,
+      "y": 158926,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 70944,
+      "y": 158930,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 69986,
+      "y": 158932,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 69035,
+      "y": 158932,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 68088,
+      "y": 158933,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 67133,
+      "y": 158939,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 66179,
+      "y": 158942,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 65231,
+      "y": 158941,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 64280,
+      "y": 158940,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 63330,
+      "y": 158946,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 62381,
+      "y": 158953,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 61432,
+      "y": 158948,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 60478,
+      "y": 158955,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 59530,
+      "y": 158951,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 58581,
+      "y": 158953,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 58832,
+      "y": 157727,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 58824,
+      "y": 156766,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 58813,
+      "y": 155810,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 58806,
+      "y": 154863,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 58784,
+      "y": 152959,
+      "isStation": true,
+      "stationName": "MaxCut3_Platten",
+      "layer": "All"
+    },
+    {
+      "x": 56352,
+      "y": 162865,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56356,
+      "y": 163820,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56367,
+      "y": 164771,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56367,
+      "y": 165718,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56377,
+      "y": 166665,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56379,
+      "y": 167616,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56387,
+      "y": 168566,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56390,
+      "y": 169517,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 58883,
+      "y": 167599,
+      "isStation": true,
+      "stationName": "MaxCut6_Platten",
+      "layer": "All"
+    },
+    {
+      "x": 56982,
+      "y": 167609,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 57630,
+      "y": 158960,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56683,
+      "y": 158962,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 57635,
+      "y": 159907,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 56343,
+      "y": 160019,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90111,
+      "y": 192972,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90120,
+      "y": 193924,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90115,
+      "y": 194879,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90111,
+      "y": 195828,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90114,
+      "y": 196772,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90108,
+      "y": 197729,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90109,
+      "y": 198680,
+      "isStation": true,
+      "stationName": "LadenFTF4",
+      "layer": "All"
+    },
+    {
+      "x": 90108,
+      "y": 199628,
+      "isStation": true,
+      "stationName": "Rollenbahn_Ofenanlage",
+      "layer": "All"
+    },
+    {
+      "x": 163729,
+      "y": 155433,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 162781,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 159781,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 158831,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 157881,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 156931,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 155981,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 155031,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 154081,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 153131,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 152181,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 151231,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 150281,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 149331,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 148381,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 147431,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 146481,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 145531,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 144581,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 141071,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 140121,
+      "y": 156383,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 146481,
+      "y": 158838,
+      "isStation": true,
+      "stationName": "Halle4_2",
+      "layer": "All"
+    },
+    {
+      "x": 146481,
+      "y": 153938,
+      "isStation": true,
+      "stationName": "Halle4_4",
+      "layer": "All"
+    },
+    {
+      "x": 142021,
+      "y": 158838,
+      "isStation": true,
+      "stationName": "Halle4_1",
+      "layer": "All"
+    },
+    {
+      "x": 142021,
+      "y": 153918,
+      "isStation": true,
+      "stationName": "Halle4_3",
+      "layer": "All"
+    },
+    {
+      "x": 152428,
+      "y": 183253,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 151796,
+      "y": 183953,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 151158,
+      "y": 184658,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 146950,
+      "y": 185395,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 146000,
+      "y": 185395,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 145050,
+      "y": 185389,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 61334,
+      "y": 155273,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 62359,
+      "y": 155271,
+      "isStation": true,
+      "stationName": "MaxCut3_Barren",
+      "layer": "All"
+    },
+    {
+      "x": 79551,
+      "y": 155234,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 80506,
+      "y": 155242,
+      "isStation": true,
+      "stationName": "MaxCut2_Barren",
+      "layer": "All"
+    },
+    {
+      "x": 91030,
+      "y": 176056,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 91019,
+      "y": 175104,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 93903,
+      "y": 177829,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 94852,
+      "y": 177824,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 95805,
+      "y": 177822,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 96754,
+      "y": 177814,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 97708,
+      "y": 177817,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 98653,
+      "y": 177816,
+      "isStation": true,
+      "stationName": "Rollenbahn_Beladen",
+      "layer": "All"
+    },
+    {
+      "x": 89271,
+      "y": 187909,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90213,
+      "y": 189808,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90213,
+      "y": 188858,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 90196,
+      "y": 185998,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 91145,
+      "y": 185988,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 92093,
+      "y": 185978,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 93042,
+      "y": 185969,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 94000,
+      "y": 185956,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 94949,
+      "y": 185942,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 95891,
+      "y": 185933,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 96842,
+      "y": 185921,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 97793,
+      "y": 185917,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 98741,
+      "y": 185900,
+      "isStation": true,
+      "stationName": "Rollenbahn_Versand",
+      "layer": "All"
+    },
+    {
+      "x": 91059,
+      "y": 177840,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 89042,
+      "y": 173228,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 88092,
+      "y": 173233,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 87142,
+      "y": 173237,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 86192,
+      "y": 173242,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 85242,
+      "y": 173246,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 84292,
+      "y": 173251,
+      "isStation": true,
+      "stationName": "MaxCut1_Barren",
+      "layer": "All"
+    },
+    {
+      "x": 75517,
+      "y": 176660,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 74567,
+      "y": 176668,
+      "isStation": false,
+      "layer": "All"
+    },
+    {
+      "x": 73617,
+      "y": 176665,
+      "isStation": true,
+      "stationName": "MaxCut6_Barren",
+      "layer": "All"
+    }
+  ],
+  "layers": [
+    {
+      "name": "All",
+      "xMax": 187040,
+      "xMin": 56343,
+      "yMax": 199628,
+      "yMin": 142579
+    }
+  ]
+}

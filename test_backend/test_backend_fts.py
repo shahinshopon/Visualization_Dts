@@ -1,39 +1,38 @@
+from data_provider import *
+from objects import *
 from quart import Quart, websocket, render_template, jsonify
+from pathlib import Path
 import asyncio
 
 app = Quart(__name__)
 
+script_directory = Path(__file__).parent
 
-sample_data_api1 = ["Data1 API1", "Data2 API1", "Data3 API1"]
-sample_data_api2 = ["Data1 API2", "Data2 API2", "Data3 API2"]
+waypoint_data_file = (script_directory / 'data' / 'waypointData.json').resolve()
+fts_data_file = (script_directory / 'data' / 'ftsData.json').resolve()
 
-async def send_periodic_messages(ws, data_list):
-    for data in data_list:
+waypoint_data = load_mapdata_string_from_file(waypoint_data_file)
+fts_data = load_fts_data_from_file(fts_data_file)
+
+async def send_periodic_messages(ws):
+    for data in fts_data.locations:
         try:
-            await ws.send(data)
+            await ws.send(data.to_json())
         except asyncio.CancelledError:
             # The connection was closed, so cancel this task
             break
-        await asyncio.sleep(15)  # Wait for 15 seconds before sending the next message
+        await asyncio.sleep(1)  # Wait for 15 seconds before sending the next message
 
 
 # RESTful API endpoint
-@app.route('/api/data')
+@app.route('/waypoints')
 async def get_data():
-    return jsonify({'message': 'Hello from REST API'})
+    return waypoint_data
 
 # WebSocket route for API 1
-@app.websocket('/ws/api1')
+@app.websocket('/fts-data')
 async def ws_api1():
-    while True:
-        data = await websocket.receive()
-        print(f"WS API 1 received: {data}")
-        await websocket.send(f"Echo from WS API 1: {data}")
-
-# WebSocket route for API 2
-@app.websocket('/ws/api2')
-async def ws_api2():
-    await send_periodic_messages(websocket, sample_data_api2)
+    await send_periodic_messages(websocket)
 
 if __name__ == '__main__':
     app.run()
