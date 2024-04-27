@@ -151,3 +151,43 @@ class Layers {
     return data;
   }
 }
+
+
+
+//new add for web socket data
+class NewModelOneForWebSocketData {
+  int? id;
+  int? x;
+  int? y;
+  bool? hasDrivingOrder;
+  String? destination;
+  String? time;
+
+  NewModelOneForWebSocketData(
+      {this.id,
+      this.x,
+      this.y,
+      this.hasDrivingOrder,
+      this.destination,
+      this.time});
+
+  NewModelOneForWebSocketData.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    x = json['x'];
+    y = json['y'];
+    hasDrivingOrder = json['hasDrivingOrder'];
+    destination = json['destination'];
+    time = json['time'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['x'] = this.x;
+    data['y'] = this.y;
+    data['hasDrivingOrder'] = this.hasDrivingOrder;
+    data['destination'] = this.destination;
+    data['time'] = this.time;
+    return data;
+  }
+}

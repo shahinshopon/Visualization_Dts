@@ -1,6 +1,8 @@
 //import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:web_socket_channel/status.dart' as status;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
@@ -16,9 +18,11 @@ class _WebSocketScreenState extends State<WebSocketScreen> {
     //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
       Uri.parse('ws://0.0.0.0:5000/fts-data')
       );
-
+  Box? socketBox;
   @override
   void initState() {
+   
+    socketBox = Hive.box('socketBox');
      strem();
     super.initState();
   }
@@ -31,7 +35,8 @@ var ftsFetchAllData = [];
       //  ftsFetchAllData.add(message);
       // var data = utf8.decode(message);
         setState(() {
-          ftsFetchAllData.add(message);
+         // ftsFetchAllData.add(message);
+          socketBox!.add(message);
         });
     });
    } catch (e) {
@@ -49,15 +54,26 @@ var ftsFetchAllData = [];
 
   @override
   Widget build(BuildContext context) {
-    print(ftsFetchAllData.length);
+    print(socketBox?.keys.toList().length);
     return Scaffold(
-      body:  ListView.builder(
-              itemCount: ftsFetchAllData.length,
+      // body:  ListView.builder(
+      //         itemCount: ftsFetchAllData.length,
+      //         itemBuilder: (context,index){
+      //        return ListTile(
+      //         title: Text('${ftsFetchAllData[index]}'),
+      //        );
+      //         })
+      body:  ValueListenableBuilder(
+        valueListenable: Hive.box('socketBox').listenable(),
+         builder: (context,box,widget){
+          return ListView.builder(
+              itemCount: socketBox?.keys.toList().length,
               itemBuilder: (context,index){
              return ListTile(
-              title: Text('${ftsFetchAllData[index]}'),
+              title: Text('${socketBox?.getAt(index)}'),
              );
-              })
+              });
+         })
         
      
     );
