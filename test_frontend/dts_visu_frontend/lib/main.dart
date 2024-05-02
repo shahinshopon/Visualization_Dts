@@ -25,40 +25,39 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-    final channel = WebSocketChannel.connect(
-    //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
-      Uri.parse('ws://0.0.0.0:5000/fts-data')
-      );
+  final channel = WebSocketChannel.connect(
+      //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
+      Uri.parse('ws://0.0.0.0:5000/fts-data'));
 
   Box? socketBox;
 
   @override
   void initState() {
-   //Hive.box('socketBox').clear();
+    //Hive.box('socketBox').clear();
     socketBox = Hive.box('socketBox');
-     strem();
+    strem();
     super.initState();
   }
 
-var ftsFetchAllData = [];
+  var ftsFetchAllData = [];
 
   strem() async {
-   try {
+    try {
       await channel.ready;
-    channel.stream.listen((message) {
-      //  channel.sink.add(message);
-      //  ftsFetchAllData.add(message);
-      // var data = utf8.decode(message);
+      channel.stream.listen((message) {
+        //  channel.sink.add(message);
+        //  ftsFetchAllData.add(message);
+        // var data = utf8.decode(message);
         setState(() {
-         // ftsFetchAllData.add(message);
+          // ftsFetchAllData.add(message);
           socketBox!.add(message);
         });
-    });
-   } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-     print('Error fetching data: $e');
-   }
-   
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
+      print('Error fetching data: $e');
+    }
   }
 
   @override
@@ -82,6 +81,7 @@ var ftsFetchAllData = [];
     );
   }
 }
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -99,15 +99,14 @@ class _HomeState extends State<Home> {
         isLoaded = true;
       });
     });
-    
   }
 
   // Box? socketBox;
 
   @override
   void initState() {
-   //  socketBox!.delete('socketBox');
-  // Hive.box('socketBox').clear();
+    //  socketBox!.delete('socketBox');
+    // Hive.box('socketBox').clear();
     getWaypointData();
     socketBox = Hive.box('socketBox');
     getData();
@@ -122,13 +121,23 @@ class _HomeState extends State<Home> {
     Future.delayed(Duration(seconds: 3), () {
       for (var i = 0; i < socketBox!.keys.toList().length; i++) {
         Map valueMap = jsonDecode(socketBox!.getAt(i));
-        socketData.add(valueMap);
-       // print(socketData);
+        // socketData.forEach((element) {
+        //   if (socketData.contains(valueMap['x'] && element['y'] )) {
+        //   } else {
+        //     socketData.add(valueMap);
+        //   }
+        // });
+       if ( socketData.contains(valueMap)){
+         // print('duplicate value');
+        } else {
+         socketData.add(valueMap);
+       }
+        // socketData.add(valueMap);
+        
       }
+      // print(socketData.length);
     });
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -224,12 +233,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: SizedBox(
-          width: MediaQuery.of(context)
-              .size
-              .height,
-          height: MediaQuery.of(context)
-              .size
-              .width, 
+          width: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.width,
           child: CustomPaint(
             painter: CoordinatePainter(
                 widget.wayPointsAllData, widget.webSocketAllData),
@@ -341,7 +346,7 @@ class CoordinatePainter extends CustomPainter {
             }
           }
         }
-       //end add for query If there is a driving order
+        //end add for query If there is a driving order
         canvas.drawRect(
           Rect.fromCenter(
               center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
@@ -389,9 +394,12 @@ class CoordinatePainter extends CustomPainter {
 
     // Draw DTS
     List mappedCoordinatesNew = webSocketAllData.map((coordinate) {
-      final double x = (coordinate['x'] - minXForDts) / (maxXForDts - minXForDts) * canvasWidth;
-      final double y =
-          (-(coordinate['y'] - maxYForDts) / (maxYForDts - minYForDts) * canvasHeight);
+      final double x = (coordinate['x'] - minXForDts) /
+          (maxXForDts - minXForDts) *
+          canvasWidth;
+      final double y = (-(coordinate['y'] - maxYForDts) /
+          (maxYForDts - minYForDts) *
+          canvasHeight);
       return Offset(x, y);
     }).toList();
 
