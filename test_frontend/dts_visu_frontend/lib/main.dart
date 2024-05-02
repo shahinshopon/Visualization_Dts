@@ -7,6 +7,7 @@ import 'dart:math' as math;
 
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,8 +17,56 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+    final channel = WebSocketChannel.connect(
+    //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
+      Uri.parse('ws://0.0.0.0:5000/fts-data')
+      );
+
+  Box? socketBox;
+
+  @override
+  void initState() {
+   //Hive.box('socketBox').clear();
+    socketBox = Hive.box('socketBox');
+     strem();
+    super.initState();
+  }
+
+var ftsFetchAllData = [];
+
+  strem() async {
+   try {
+      await channel.ready;
+    channel.stream.listen((message) {
+      //  channel.sink.add(message);
+      //  ftsFetchAllData.add(message);
+      // var data = utf8.decode(message);
+        setState(() {
+         // ftsFetchAllData.add(message);
+          socketBox!.add(message);
+        });
+    });
+   } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+     print('Error fetching data: $e');
+   }
+   
+  }
+
+  @override
+  void dispose() {
+    channel.sink.close();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
