@@ -23,7 +23,9 @@ class TDSWaypointsHelper {
 
       return newModelTwoModel;
     } else {
-      failedSnackBar(message: 'Something is wrong, status code${response.statusCode} error');
+      failedSnackBar(
+          message:
+              'Something is wrong, status code is${response.statusCode} error');
     }
   }
 }
