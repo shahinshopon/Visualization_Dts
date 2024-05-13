@@ -13,32 +13,32 @@ class WebSocketScreen extends StatefulWidget {
 
 class _WebSocketScreenState extends State<WebSocketScreen> {
   final channel = WebSocketChannel.connect(
-    //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
-      Uri.parse('ws://0.0.0.0:5000/fts-data')
-      );
+      //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
+      Uri.parse('ws://127.0.0.1:5000/fts-data'));
 
   @override
   void initState() {
-     strem();
+    strem();
     super.initState();
   }
-var ftsFetchAllData = [];
+
+  var ftsFetchAllData = [];
   strem() async {
-   try {
+    try {
       await channel.ready;
-    channel.stream.listen((message) {
-      //  channel.sink.add(message);
-      //  ftsFetchAllData.add(message);
-      // var data = utf8.decode(message);
+      channel.stream.listen((message) {
+        //  channel.sink.add(message);
+        //  ftsFetchAllData.add(message);
+        // var data = utf8.decode(message);
         setState(() {
           ftsFetchAllData.add(message);
         });
-    });
-   } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-     print('Error fetching data: $e');
-   }
-   
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
+      print('Error fetching data: $e');
+    }
   }
 
   @override
@@ -51,16 +51,12 @@ var ftsFetchAllData = [];
   Widget build(BuildContext context) {
     print(ftsFetchAllData.length);
     return Scaffold(
-      body:  ListView.builder(
-              itemCount: ftsFetchAllData.length,
-              itemBuilder: (context,index){
-             return ListTile(
-              title: Text('${ftsFetchAllData[index]}'),
-             );
-              })
-        
-     
-    );
+        body: ListView.builder(
+            itemCount: ftsFetchAllData.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text('${ftsFetchAllData[index]}'),
+              );
+            }));
   }
 }
-

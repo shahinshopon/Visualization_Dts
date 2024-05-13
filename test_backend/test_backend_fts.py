@@ -1,10 +1,13 @@
 from data_provider import *
 from objects import *
 from quart import Quart, websocket, render_template, jsonify
+from quart_cors import cors
 from pathlib import Path
 import asyncio
 
 app = Quart(__name__)
+app = cors(app)  # Enable CORS for all domains on all routes
+
 
 script_directory = Path(__file__).parent
 
