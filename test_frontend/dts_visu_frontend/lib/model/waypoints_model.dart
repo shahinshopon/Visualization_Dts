@@ -1,75 +1,11 @@
 
-// import 'dart:convert';
-
-// List<NewModel> commentfromJson(String str)=> List<NewModel>.from(jsonDecode(str).map((x)=>NewModel.fromJson(x)));
-// String commentToJson(List<NewModel>data)=>jsonEncode(List<dynamic>.from(data.map((x) => x.toJson())));
-// class NewModel {
-//     List<Waypoint> waypoints;
-//     List<Layer> layers;
-
-//     NewModel({
-//         required this.waypoints,
-//         required this.layers,
-//     });
-
-//     factory NewModel.fromJson(Map<String,dynamic>json)=> NewModel(
-//   waypoints: json['waypoints'], layers: json['layers']);
-//   Map<String,dynamic> toJson()=> {
-//     'waypoints' : waypoints,
-//     'layers':layers
-//   };
-
-// }
-
-
-
-// class Layer {
-//     Name name;
-//     int xMax;
-//     int xMin;
-//     int yMax;
-//     int yMin;
-
-//     Layer({
-//         required this.name,
-//         required this.xMax,
-//         required this.xMin,
-//         required this.yMax,
-//         required this.yMin,
-//     });
-
-// }
-
-// enum Name {
-//     ALL
-// }
-
-// class Waypoint {
-//     int x;
-//     int y;
-//     bool isStation;
-//     Name layer;
-//     String? stationName;
-
-//     Waypoint({
-//         required this.x,
-//         required this.y,
-//         required this.isStation,
-//         required this.layer,
-//         this.stationName,
-//     });
-
-// }
-
-
-
-class NewModelTwo {
+class WayPointsModel {
   List<Waypoints>? waypoints;
   List<Layers>? layers;
 
-  NewModelTwo({this.waypoints, this.layers});
+  WayPointsModel({this.waypoints, this.layers});
 
-  NewModelTwo.fromJson(Map<String, dynamic> json) {
+  WayPointsModel.fromJson(Map<String, dynamic> json) {
     if (json['waypoints'] != null) {
       waypoints = <Waypoints>[];
       json['waypoints'].forEach((v) {
@@ -151,3 +87,4 @@ class Layers {
     return data;
   }
 }
+

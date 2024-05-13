@@ -1,6 +1,6 @@
 import 'dart:convert';
-
-import 'package:dts_visu_frontend/model/new_model.dart';
+import 'package:dts_visu_frontend/const/app_styles.dart';
+import 'package:dts_visu_frontend/model/waypoints_model.dart';
 import 'package:http/http.dart' as http;
 
 class TDSWaypointsHelper {
@@ -18,12 +18,12 @@ class TDSWaypointsHelper {
     if (response.statusCode == 200) {
       var data = response.body;
 
-      NewModelTwo newModelTwoModel =
-          NewModelTwo.fromJson(jsonDecode(response.body));
+      WayPointsModel newModelTwoModel =
+          WayPointsModel.fromJson(jsonDecode(response.body));
 
       return newModelTwoModel;
     } else {
-      print(response.statusCode);
+      failedSnackBar(message: 'Something is wrong, status code${response.statusCode} error');
     }
   }
 }

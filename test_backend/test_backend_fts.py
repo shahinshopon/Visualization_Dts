@@ -6,8 +6,7 @@ from pathlib import Path
 import asyncio
 
 app = Quart(__name__)
-app = cors(app)  # Enable CORS for all domains on all routes
-
+app = cors(app)
 
 script_directory = Path(__file__).parent
 
@@ -30,11 +29,13 @@ async def send_periodic_messages(ws):
 # RESTful API endpoint
 @app.route('/waypoints')
 async def get_data():
+    print('GET /waypoints')
     return waypoint_data
 
 # WebSocket route for API 1
 @app.websocket('/fts-data')
 async def ws_api1():
+    print('WebSocket /fts-data')
     await send_periodic_messages(websocket)
 
 if __name__ == '__main__':

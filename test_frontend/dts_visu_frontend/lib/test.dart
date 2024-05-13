@@ -1,40 +1,42 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+// import 'dart:convert';
+// import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
 
 
-class Waypoint {
-  final double x;
-  final double y;
-  final int layer;
+// class Waypoint {
+//   final double x;
+//   final double y;
+//   final int layer;
 
-  Waypoint(this.x, this.y, this.layer);
-}
+//   Waypoint(this.x, this.y, this.layer);
+// }
 
-class Layer {
-  final List<Waypoint> waypoints;
-  final double minX;
-  final double maxX;
-  final double minY;
-  final double maxY;
+// class Layer {
+//   final List<Waypoint> waypoints;
+//   final double minX;
+//   final double maxX;
+//   final double minY;
+//   final double maxY;
 
-  Layer(this.waypoints, this.minX, this.maxX, this.minY, this.maxY);
-}
+//   Layer(this.waypoints, this.minX, this.maxX, this.minY, this.maxY);
+// }
 
-class Station {
-  final double x;
-  final double y;
-  final String name;
+// class Station {
+//   final double x;
+//   final double y;
+//   final String name;
 
-  Station(this.x, this.y,this.name);
-}
+//   Station(this.x, this.y,this.name);
+// }
 
-class DTS {
-  final double x;
-  final double y;
-  final String name;
-  DTS(this.x, this.y,this.name);
-}
+// class DTS {
+//   final double x;
+//   final double y;
+//   final String name;
+//   DTS(this.x, this.y,this.name);
+// }
+
+
 
 // class DTSVisualizationApp extends StatelessWidget {
 //   final List<Layer> layers = [
@@ -303,3 +305,98 @@ class DTS {
 //     return false;
 //   }
 // }
+
+
+// class WebSocketScreen extends StatefulWidget {
+//   const WebSocketScreen({super.key});
+
+//   @override
+//   State<WebSocketScreen> createState() => _WebSocketScreenState();
+// }
+
+// class _WebSocketScreenState extends State<WebSocketScreen> {
+//   final channel = WebSocketChannel.connect(
+//     //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
+//       Uri.parse('ws://0.0.0.0:5000/fts-data')
+//       );
+//   Box? socketBox;
+//   @override
+//   void initState() {
+   
+//     socketBox = Hive.box('socketBox');
+//      strem();
+//     super.initState();
+//   }
+// var ftsFetchAllData = [];
+//   strem() async {
+//    try {
+//       await channel.ready;
+//     channel.stream.listen((message) {
+//       //  channel.sink.add(message);
+//       //  ftsFetchAllData.add(message);
+//       // var data = utf8.decode(message);
+//         setState(() {
+//          // ftsFetchAllData.add(message);
+//           socketBox!.add(message);
+//         });
+//     });
+//    } catch (e) {
+//     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+//      print('Error fetching data: $e');
+//    }
+   
+//   }
+
+//   @override
+//   void dispose() {
+//     channel.sink.close();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     print(socketBox?.keys.toList().length);
+//     return Scaffold(
+//       // body:  ListView.builder(
+//       //         itemCount: ftsFetchAllData.length,
+//       //         itemBuilder: (context,index){
+//       //        return ListTile(
+//       //         title: Text('${ftsFetchAllData[index]}'),
+//       //        );
+//       //         })
+//       body:  ValueListenableBuilder(
+//         valueListenable: Hive.box('socketBox').listenable(),
+//          builder: (context,box,widget){
+//           return ListView.builder(
+//               itemCount: socketBox?.keys.toList().length,
+//               itemBuilder: (context,index){
+//              return ListTile(
+//               title: Text('${socketBox?.getAt(index)}'),
+//              );
+//               });
+//          })
+        
+     
+//     );
+//   }
+// }
+
+
+//                 for (var i = 0; i < 13; i++) {
+//    socketData.add(socketBox!.getAt(i)) ;
+// print(socketData);
+//   }
+
+                // print(socketBox?.getAt(index));
+                //  var  check =[];
+                //    for (var i = 0; i < wayPointsAllData.length; i++) {
+                //      if (layersAllData[index].xMax! >= wayPointsAllData[i].x! && layersAllData[index].xMin! <= wayPointsAllData[i].x!) {
+                //       check.add(wayPointsAllData[i].x!);
+                //     }
+                //    }
+                //   print(check.length);
+                //   print(check);
+                //  wayPointsAllData.sort((a, b) => a.y!.compareTo(b.y as num),);
+
+                // wayPointsAllData.forEach((element) {print(element.y);});
+              
