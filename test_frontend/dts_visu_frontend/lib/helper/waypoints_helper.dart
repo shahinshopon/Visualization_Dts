@@ -7,7 +7,7 @@ class TDSWaypointsHelper {
   getTDSWaypoints() async {
     var response = await http.get(
         Uri.parse(
-          'http://0.0.0.0:5000/waypoints',
+          'http://127.0.0.1:5000/waypoints',
         ),
         headers: {
           "Access-Control-Allow-Origin": "*",
