@@ -1,13 +1,11 @@
-
 import 'package:dts_visu_frontend/const/app_colors.dart';
 import 'package:dts_visu_frontend/model/waypoints_model.dart';
 import 'package:flutter/material.dart';
 
 class CoordinatePainter extends CustomPainter {
   final List<Waypoints> coordinates;
-  List webSocketAllData;
-
-  CoordinatePainter(this.coordinates, this.webSocketAllData);
+  var valueList;
+  CoordinatePainter(this.coordinates, this.valueList);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -39,8 +37,15 @@ class CoordinatePainter extends CustomPainter {
       return Offset(x, y);
     }).toList();
 
+    // for station name start
+    TextPainter stationNamePainter;
+    stationNamePainter = TextPainter(
+      textAlign: TextAlign.left,
+      textDirection: TextDirection.ltr,
+    );
+
     for (int i = 0; i < mappedCoordinates.length - 1; i++) {
-     // Draw the 'x' mark
+      // Draw the 'x' mark
       canvas.drawLine(
         Offset(mappedCoordinates[i].dx - 3, mappedCoordinates[i].dy - 3),
         Offset(mappedCoordinates[i].dx + 3, mappedCoordinates[i].dy + 3),
@@ -51,82 +56,34 @@ class CoordinatePainter extends CustomPainter {
         Offset(mappedCoordinates[i].dx + 3, mappedCoordinates[i].dy - 3),
         paint,
       );
-    }
-
-    // for station number start
-    TextPainter painterOne;
-    painterOne = TextPainter(
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
-    );
-    // for station number end
-    // for station name start
-    TextPainter painterTwo;
-    painterTwo = TextPainter(
-      textAlign: TextAlign.left,
-      textDirection: TextDirection.ltr,
-    );
-
-    // for station name end
-    var stationNumber = 0;
-    for (int i = 0; i < coordinates.length - 1; i++) {
       if (coordinates[i].isStation == true) {
-        //start add for query If there is a driving order
-        for (var j = 0; j < webSocketAllData.length; j++) {
-          if (webSocketAllData[j]['hasDrivingOrder'] == true) {
-            if (webSocketAllData[j]['destination'] ==
-                    coordinates[i].stationName ||
-                webSocketAllData[j]['source'] == coordinates[i].stationName) {
-              paint.color = darkColor;
-            }
-          }
-        }
-        //end add for query If there is a driving order
-        canvas.drawRect(
-          Rect.fromCenter(
-              center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
-              width: 16,
-              height: 16),
-          paint,
-        );
-        // for station number start
-        stationNumber++;
-        painterOne.text = TextSpan(
-          text: '$stationNumber',
-          style: const TextStyle(
-            color: lightColor,
-            fontSize: 11.0,
-          ),
-        );
-
-        Offset position = Offset(
-          mappedCoordinates[i].dx - 6.0,
-          mappedCoordinates[i].dy - 6.0,
-        );
-        painterOne.layout();
-        painterOne.paint(canvas, position);
-        // for station number end
-
-        // for station name start
-        painterTwo.text = TextSpan(
+        paint.color = darkColor;
+        canvas.drawCircle(
+            Offset(
+              mappedCoordinates[i].dx,
+              mappedCoordinates[i].dy + 12.0,
+            ),
+            2,
+            paint);
+        // station name style
+        stationNamePainter.text = TextSpan(
           text: coordinates[i].stationName,
           style: const TextStyle(
             color: blueColor,
             fontSize: 8.0,
           ),
         );
+        // station name position
         Offset positionTwo = Offset(
-          mappedCoordinates[i].dx + 12.0,
+          mappedCoordinates[i].dx + 3.0,
           mappedCoordinates[i].dy + 8.0,
         );
-        painterTwo.layout();
-        painterTwo.paint(canvas, positionTwo);
-        // for station name end
+        stationNamePainter.layout();
+        stationNamePainter.paint(canvas, positionTwo);
       }
     }
 
-    // Draw DTS
-    List mappedCoordinatesNew = webSocketAllData.map((coordinate) {
+    var mappedCoordinatesNew = valueList.map((coordinate) {
       final double x = (coordinate['x'] - minXForDts) /
           (maxXForDts - minXForDts) *
           canvasWidth;
@@ -136,12 +93,72 @@ class CoordinatePainter extends CustomPainter {
       return Offset(x, y);
     }).toList();
 
-    for (int i = 0; i < mappedCoordinatesNew.length - 1; i++) {
-      paint.color = darkColor;
-      canvas.drawCircle(
-          Offset(mappedCoordinatesNew[i].dx, mappedCoordinatesNew[i].dy),
-          2,
-          paint);
+    // for source circle text
+    TextPainter sourceCircleNumberPainter;
+    sourceCircleNumberPainter = TextPainter(
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+
+    for (var i = 0; i < valueList.length - 1; i++) {
+      if (valueList[i]['source'] != null) {
+        for (int j = 0; j < coordinates.length - 1; j++) {
+          if (coordinates[j].stationName == valueList[i]['source']) {
+            paint.color = blueColor;
+            canvas.drawCircle(
+                Offset(
+                    mappedCoordinates[j].dx - 6, mappedCoordinates[j].dy + 20),
+                10,
+                paint);
+            // for source circle style
+            sourceCircleNumberPainter.text = TextSpan(
+              text: '${valueList[i]['id']}',
+              style: const TextStyle(
+                  color: lightColor,
+                  fontSize: 10.0,
+                  fontWeight: FontWeight.w600),
+            );
+            // for source circle position
+            Offset position = Offset(
+              mappedCoordinates[j].dx - 10,
+              mappedCoordinates[j].dy + 10.0,
+            );
+            sourceCircleNumberPainter.layout();
+            sourceCircleNumberPainter.paint(canvas, position);
+          }
+        }
+      }
+    }
+
+    // for station number
+    TextPainter stationNumberPainter;
+    stationNumberPainter = TextPainter(
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+
+    for (int i = 0; i < mappedCoordinatesNew.length; i++) {
+      paint.color = blueColor;
+      canvas.drawRect(
+        Rect.fromCenter(
+            center: Offset(
+                mappedCoordinatesNew[i].dx - 20, mappedCoordinatesNew[i].dy),
+            // center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
+            width: 25,
+            height: 16),
+        paint,
+      );
+      stationNumberPainter.text = TextSpan(
+        text: '${valueList[i]['id']}',
+        style: const TextStyle(
+            color: lightColor, fontSize: 13.0, fontWeight: FontWeight.w600),
+      );
+      Offset position = Offset(
+        mappedCoordinatesNew[i].dx - 22.0,
+        mappedCoordinatesNew[i].dy - 8.0,
+      );
+      stationNumberPainter.layout();
+      stationNumberPainter.paint(canvas, position);
     }
   }
 
