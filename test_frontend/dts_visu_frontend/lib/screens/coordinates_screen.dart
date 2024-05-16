@@ -37,7 +37,7 @@ class CoordinatePainter extends CustomPainter {
       return Offset(x, y);
     }).toList();
 
-    // for station name start
+    // for station name
     TextPainter stationNamePainter;
     stationNamePainter = TextPainter(
       textAlign: TextAlign.left,
@@ -103,7 +103,7 @@ class CoordinatePainter extends CustomPainter {
     for (var i = 0; i < valueList.length - 1; i++) {
       if (valueList[i]['source'] != null) {
         for (int j = 0; j < coordinates.length - 1; j++) {
-          if (coordinates[j].stationName == valueList[i]['source']) {
+          if (coordinates[j].stationName == valueList[i]['destination']) {
             paint.color = blueColor;
             canvas.drawCircle(
                 Offset(
@@ -121,7 +121,7 @@ class CoordinatePainter extends CustomPainter {
             // for source circle position
             Offset position = Offset(
               mappedCoordinates[j].dx - 10,
-              mappedCoordinates[j].dy + 10.0,
+              mappedCoordinates[j].dy + 12.0,
             );
             sourceCircleNumberPainter.layout();
             sourceCircleNumberPainter.paint(canvas, position);
@@ -129,7 +129,6 @@ class CoordinatePainter extends CustomPainter {
         }
       }
     }
-
     // for station number
     TextPainter stationNumberPainter;
     stationNumberPainter = TextPainter(
