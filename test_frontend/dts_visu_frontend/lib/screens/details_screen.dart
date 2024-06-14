@@ -60,9 +60,42 @@ class _DetailsScreenState extends State<DetailsScreen> {
     },
   ];
 
+  List<Map<String, dynamic>> sampleDataForDrivingOrderFalse = [
+    {
+      "id": 1,
+      "x": 131972,
+      "y": 190678,
+      "hasDrivingOrder": false,
+      "time": "2024-03-26T16:00:03.13"
+    },
+    {
+      "id": 4,
+      "x": 90115,
+      "y": 191712,
+      "hasDrivingOrder": false,
+      "time": "2024-03-26T16:00:03.133"
+    },
+    {
+      "id": 2,
+      "x": 75716,
+      "y": 159046,
+      "hasDrivingOrder": false,
+      "time": "2024-03-26T16:00:03.137"
+    },
+    {
+      "id": 3,
+      "x": 167156,
+      "y": 181539,
+      "hasDrivingOrder": false,
+      "time": "2024-03-26T16:00:03.14"
+    },
+  ];
+
   strem() async {
     try {
       await channel.ready;
+     // channel.sink.close();
+    // sampleData.clear();
       channel.stream.listen((message) {
         setState(() {
           Map<String, dynamic> valueMap = jsonDecode(message);
@@ -70,12 +103,20 @@ class _DetailsScreenState extends State<DetailsScreen> {
           // Check if new_data's id already exists in the list
           var existingIndex = valueMap['id'];
           for (var i in sampleData) {
-            if (i['id'] == existingIndex &&
-                valueMap['hasDrivingOrder'] == true) {
+            if (i['id'] == existingIndex 
+           // && valueMap['hasDrivingOrder'] == true
+                ) {
               sampleData.remove(i);
               sampleData.add(valueMap);
             }
           }
+          // for (var i in sampleDataForDrivingOrderFalse) {
+          //   if(i['id'] == existingIndex &&
+          //       valueMap['hasDrivingOrder'] == false) {
+          //     sampleDataForDrivingOrderFalse.remove(i);
+          //     sampleDataForDrivingOrderFalse.add(valueMap);
+          //   }
+          // }
         });
       });
     } catch (e) {
@@ -100,7 +141,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
           width: MediaQuery.of(context).size.height,
           height: MediaQuery.of(context).size.width,
           child: CustomPaint(
-            painter: CoordinatePainter(widget.wayPointsAllData, sampleData),
+            painter: CoordinatePainter(widget.wayPointsAllData, sampleData,
+            //sampleDataForDrivingOrderFalse
+            ),
           ),
         ),
       ),
