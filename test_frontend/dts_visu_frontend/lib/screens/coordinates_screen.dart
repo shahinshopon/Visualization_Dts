@@ -112,16 +112,90 @@ class CoordinatePainter extends CustomPainter {
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
     );
-  
-    for (var i = 0; i < valueList.length - 1; i++) {
-      if (valueList[i]['source'] != null ) {
-        for (int j = 0; j < coordinates.length - 1; j++) {
-         //  if ( valueList[i]['hasDrivingOrder'] == true) {
+    //new
+    // List saveDataForSource = [];
+    //    for (var i = 0; i < valueList.length - 1; i++) {
+    //      // if (valueList[i]['destination'] != null ) {
+    //         for (int j = 0; j < coordinates.length - 1; j++) {
+    //       if (coordinates[j].stationName == valueList[i]['destination']) {
+    //        // paint.color = blueColor;
+    //        if (saveDataForSource.length>4) {
+    //          for (var listData in saveDataForSource) {
+    //        if (listData['destination']!=valueList[i]['destination']) {
+    //          saveDataForSource.remove(i);
+    //          saveDataForSource.add({'id':valueList[i]['id'],'x':mappedCoordinates[j].dx - 6,'y':mappedCoordinates[j].dy + 20,'destination':valueList[i]['destination']});
+    //          if (valueList[i]['id']==1) paint.color =  Colors.black ;   
+    //         if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
+    //         if (valueList[i]['id']==3) paint.color =  Colors.green ;
+    //         if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
+    //         canvas.drawCircle(
+    //             Offset(
+    //                 saveDataForSource[i]['x'], saveDataForSource[i]['y']),
+    //             10,
+    //             paint);
+    //         // for source circle style
+    //         sourceCircleNumberPainter.text = TextSpan(
+    //           text: '${saveDataForSource[i]['id']}',
+    //           style: const TextStyle(
+    //               color: lightColor,
+    //               fontSize: 10.0,
+    //               fontWeight: FontWeight.w600),
+    //         );
+    //         // for source circle position
+    //         Offset position = Offset(
+    //           saveDataForSource[i]['x'] - 4,
+    //           saveDataForSource[i]['y'] - 8.0,
+    //         );
+    //         sourceCircleNumberPainter.layout();
+    //         sourceCircleNumberPainter.paint(canvas, position);
+    //        }
+    //        }
+    //        }else{
+    //         saveDataForSource.add({'id':valueList[i]['id'],'x':mappedCoordinates[j].dx - 6,'y':mappedCoordinates[j].dy + 20,'destination':valueList[i]['destination']});
+    //         if (valueList[i]['id']==1) paint.color =  Colors.black ;   
+    //         if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
+    //         if (valueList[i]['id']==3) paint.color =  Colors.green ;
+    //         if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
+    //         canvas.drawCircle(
+    //             Offset(
+    //                 saveDataForSource[i]['x'], saveDataForSource[i]['y']),
+    //             10,
+    //             paint);
+    //         // for source circle style
+    //         sourceCircleNumberPainter.text = TextSpan(
+    //           text: '${saveDataForSource[i]['id']}',
+    //           style: const TextStyle(
+    //               color: lightColor,
+    //               fontSize: 10.0,
+    //               fontWeight: FontWeight.w600),
+    //         );
+    //         // for source circle position
+    //         Offset position = Offset(
+    //           saveDataForSource[i]['x'] - 4,
+    //           saveDataForSource[i]['y'] - 8.0,
+    //         );
+    //         sourceCircleNumberPainter.layout();
+    //         sourceCircleNumberPainter.paint(canvas, position);
+    //        }
+           
+           
+           
+
+            
+    //       }
+    //     }
+    //    // }   
+    // }
+    
+        //old
+         for (var i = 0; i < valueList.length - 1; i++) {
+          if (valueList[i]['source'] != null ) {
+            for (int j = 0; j < coordinates.length - 1; j++) {
           if (coordinates[j].stationName == valueList[i]['destination']) {
             paint.color = blueColor;
             canvas.drawCircle(
                 Offset(
-                    mappedCoordinates[i].dx - 6, mappedCoordinates[i].dy + 20),
+                    mappedCoordinates[j].dx - 6, mappedCoordinates[j].dy + 20),
                 10,
                 paint);
             // for source circle style
@@ -134,8 +208,8 @@ class CoordinatePainter extends CustomPainter {
             );
             // for source circle position
             Offset position = Offset(
-              mappedCoordinates[i].dx - 10,
-              mappedCoordinates[i].dy + 12.0,
+              mappedCoordinates[j].dx - 10,
+              mappedCoordinates[j].dy + 12.0,
             );
             sourceCircleNumberPainter.layout();
             sourceCircleNumberPainter.paint(canvas, position);
@@ -182,9 +256,13 @@ class CoordinatePainter extends CustomPainter {
     );
 
     for (int i = 0; i < mappedCoordinatesNew.length; i++) {
-      for (var i = 0; i < valueList.length - 1; i++) {
-        if ( valueList[i]['hasDrivingOrder'] == true){
-      paint.color = blueColor;
+     // for (var i = 0; i < valueList.length - 1; i++) {
+      if (valueList[i]['id']==1) paint.color =  Colors.black ;   
+      if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
+      if (valueList[i]['id']==3) paint.color =  Colors.green ;
+      if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
+       // if ( valueList[i]['hasDrivingOrder'] == true){
+      // paint.color =  Colors.blue;
       canvas.drawRect(
         Rect.fromCenter(
             center: Offset(
@@ -205,30 +283,31 @@ class CoordinatePainter extends CustomPainter {
       );
       stationNumberPainter.layout();
       stationNumberPainter.paint(canvas, position);
-      }else{
-      paint.color = Colors.red;
-      canvas.drawRect(
-        Rect.fromCenter(
-            center: Offset(
-                mappedCoordinatesNew[i].dx - 20, mappedCoordinatesNew[i].dy),
-            // center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
-            width: 25,
-            height: 16),
-        paint,
-      );
-      stationNumberPainter.text = TextSpan(
-        text: '${valueList[i]['id']}',
-        style: const TextStyle(
-            color: lightColor, fontSize: 13.0, fontWeight: FontWeight.w600),
-      );
-      Offset position = Offset(
-        mappedCoordinatesNew[i].dx - 22.0,
-        mappedCoordinatesNew[i].dy - 8.0,
-      );
-      stationNumberPainter.layout();
-      stationNumberPainter.paint(canvas, position);
-      }
-    }
+     // }else{
+     // paint.color = Colors.red;
+      
+      // canvas.drawRect(
+      //   Rect.fromCenter(
+      //       center: Offset(
+      //           mappedCoordinatesNew[i].dx - 20, mappedCoordinatesNew[i].dy),
+      //       // center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
+      //       width: 25,
+      //       height: 16),
+      //   paint,
+      // );
+      // stationNumberPainter.text = TextSpan(
+      //   text: '${valueList[i]['id']}',
+      //   style: const TextStyle(
+      //       color: lightColor, fontSize: 13.0, fontWeight: FontWeight.w600),
+      // );
+      // Offset position = Offset(
+      //   mappedCoordinatesNew[i].dx - 22.0,
+      //   mappedCoordinatesNew[i].dy - 8.0,
+      // );
+      // stationNumberPainter.layout();
+      // stationNumberPainter.paint(canvas, position);
+    //  }
+   // }
     }
   }
 
