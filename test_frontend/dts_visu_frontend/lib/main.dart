@@ -1,10 +1,12 @@
 import 'package:dts_visu_frontend/const/app_strings.dart';
+import 'package:dts_visu_frontend/data_controller.dart';
 import 'package:dts_visu_frontend/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(  MyApp());
 }
 
 class MyApp extends StatefulWidget {

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dts_visu_frontend/const/app_colors.dart';
 import 'package:dts_visu_frontend/const/app_styles.dart';
 import 'package:dts_visu_frontend/helper/waypoints_helper.dart';
@@ -36,8 +35,11 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
+ 
+
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: isLoaded == false
           ? const Center(child: CircularProgressIndicator())
@@ -46,7 +48,13 @@ class _HomeState extends State<Home> {
               itemBuilder: (_, index) {
                 List<Waypoints> wayPointsAllData = waypoint!.waypoints!;
                 List<Layers> layersAllData = waypoint!.layers!;
-
+                // Map stationNameData = {};
+                // for (var element in wayPointsAllData) {
+                // if(element.isStation==true){
+                //  stationNameData[element.stationName]=element;
+                // }  
+                // }
+                //print(stationNameData);
                 return InkWell(
                   onTap: () {
                     Navigator.push(
@@ -55,6 +63,7 @@ class _HomeState extends State<Home> {
                             builder: (context) => DetailsScreen(
                                   wayPointsAllData,
                                   layersAllData,
+                                 // stationNameData
                                 )));
                   },
                   child: Container(

@@ -1,8 +1,9 @@
 import 'dart:convert';
-
+import 'package:dts_visu_frontend/data_controller.dart';
 import 'package:dts_visu_frontend/model/waypoints_model.dart';
 import 'package:dts_visu_frontend/screens/coordinates_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -10,11 +11,12 @@ class DetailsScreen extends StatefulWidget {
     this.wayPointsAllData,
     this.layersAllData,
     // this.webSocketAllData
+   // this.stationNameData
   );
   var wayPointsAllData;
   List<Layers> layersAllData;
   // List webSocketAllData;
-
+ // Map stationNameData;
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
 }
@@ -94,8 +96,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
   strem() async {
     try {
       await channel.ready;
-     // channel.sink.close();
-    // sampleData.clear();
+      // channel.sink.close();
+      // sampleData.clear();
       channel.stream.listen((message) {
         setState(() {
           Map<String, dynamic> valueMap = jsonDecode(message);
@@ -103,20 +105,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
           // Check if new_data's id already exists in the list
           var existingIndex = valueMap['id'];
           for (var i in sampleData) {
-            if (i['id'] == existingIndex 
-           // && valueMap['hasDrivingOrder'] == true
+            if (i['id'] == existingIndex
+                // && valueMap['hasDrivingOrder'] == true
                 ) {
               sampleData.remove(i);
               sampleData.add(valueMap);
             }
           }
-          // for (var i in sampleDataForDrivingOrderFalse) {
-          //   if(i['id'] == existingIndex &&
-          //       valueMap['hasDrivingOrder'] == false) {
-          //     sampleDataForDrivingOrderFalse.remove(i);
-          //     sampleDataForDrivingOrderFalse.add(valueMap);
-          //   }
-          // }
         });
       });
     } catch (e) {
@@ -142,11 +137,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
           height: MediaQuery.of(context).size.width,
           child: CustomPaint(
             painter: CoordinatePainter(widget.wayPointsAllData, sampleData,
-            //sampleDataForDrivingOrderFalse
+           // widget.stationNameData
             ),
           ),
         ),
       ),
-    ));
+    )
+    );
   }
 }

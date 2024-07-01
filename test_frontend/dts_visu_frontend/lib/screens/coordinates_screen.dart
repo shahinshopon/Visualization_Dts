@@ -6,8 +6,10 @@ class CoordinatePainter extends CustomPainter {
   final List<Waypoints> coordinates;
   var valueList;
   //var noDrivingOrderList;
+//var stationNameData;
   CoordinatePainter(this.coordinates, this.valueList,
-  //this.noDrivingOrderList
+  //this.noDrivingOrderList,
+ // this.stationNameData
   );
 
   @override
@@ -39,6 +41,9 @@ class CoordinatePainter extends CustomPainter {
       final double y = (-(coordinate.y! - maxY) / (maxY - minY) * canvasHeight);
       return Offset(x, y);
     }).toList();
+
+
+    
 
     // for station name
     TextPainter stationNamePainter;
@@ -176,22 +181,52 @@ class CoordinatePainter extends CustomPainter {
     //         );
     //         sourceCircleNumberPainter.layout();
     //         sourceCircleNumberPainter.paint(canvas, position);
-    //        }
-           
-           
-           
-
-            
+    //        }                  
     //       }
     //     }
     //    // }   
     // }
-    
+     
+  //   for (var i = 0; i < valueList.length - 1; i++) {
+  //   bool exists = coordinates.any((element) => element.stationName == valueList[i]['destination']);
+  //   List a =[];
+  //   if (exists) {
+  //     int index = coordinates.indexWhere((element) => element.stationName == valueList[i]['destination']);
+  //    if (a.contains(valueList[i]['destination'])) {
+  //    }else{
+  //     a.add(valueList[i]['destination']);    
+  //     paint.color = blueColor;
+  //           canvas.drawCircle(
+  //               Offset(
+  //                   mappedCoordinates[index].dx - 6, mappedCoordinates[index].dy + 20),
+  //               10,
+  //               paint);
+  //           // for source circle style
+  //           sourceCircleNumberPainter.text = TextSpan(
+  //             text: '${valueList[i]['id']}',
+  //             style: const TextStyle(
+  //                 color: lightColor,
+  //                 fontSize: 10.0,
+  //                 fontWeight: FontWeight.w600),
+  //           );
+  //           // for source circle position
+  //           Offset position = Offset(
+  //             mappedCoordinates[index].dx - 10,
+  //             mappedCoordinates[index].dy + 12.0,
+  //           );
+  //           sourceCircleNumberPainter.layout();
+  //           sourceCircleNumberPainter.paint(canvas, position);
+  //    }  
+  //   } 
+  // }
+
+
         //old
          for (var i = 0; i < valueList.length - 1; i++) {
           if (valueList[i]['source'] != null ) {
-            for (int j = 0; j < coordinates.length - 1; j++) {
+            for (int j = 0; j < mappedCoordinates.length - 1; j++) {
           if (coordinates[j].stationName == valueList[i]['destination']) {
+         // if (stationNameData.containsKey(valueList[i]['destination'])){
             paint.color = blueColor;
             canvas.drawCircle(
                 Offset(
@@ -213,6 +248,7 @@ class CoordinatePainter extends CustomPainter {
             );
             sourceCircleNumberPainter.layout();
             sourceCircleNumberPainter.paint(canvas, position);
+         // }
           }
         }
         }   
