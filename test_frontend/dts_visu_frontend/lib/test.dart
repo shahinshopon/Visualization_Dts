@@ -1,402 +1,391 @@
-// import 'dart:convert';
+// import 'package:dts_visu_frontend/const/app_colors.dart';
+// import 'package:dts_visu_frontend/model/waypoints_model.dart';
 // import 'package:flutter/material.dart';
-// import 'package:http/http.dart' as http;
 
-
-// class Waypoint {
-//   final double x;
-//   final double y;
-//   final int layer;
-
-//   Waypoint(this.x, this.y, this.layer);
-// }
-
-// class Layer {
-//   final List<Waypoint> waypoints;
-//   final double minX;
-//   final double maxX;
-//   final double minY;
-//   final double maxY;
-
-//   Layer(this.waypoints, this.minX, this.maxX, this.minY, this.maxY);
-// }
-
-// class Station {
-//   final double x;
-//   final double y;
-//   final String name;
-
-//   Station(this.x, this.y,this.name);
-// }
-
-// class DTS {
-//   final double x;
-//   final double y;
-//   final String name;
-//   DTS(this.x, this.y,this.name);
-// }
-
-
-
-// class DTSVisualizationApp extends StatelessWidget {
-//   final List<Layer> layers = [
-//     Layer([
-//       Waypoint(100, 100, 1),
-//       Waypoint(200, 100, 1),
-//       Waypoint(200, 200, 1),
-//       Waypoint(100, 200, 1),
-
-//     ], 0, 300, 0, 300),
-//     Layer([
-//       Waypoint(150, 150, 2),
-//       Waypoint(250, 150, 2),
-//       Waypoint(250, 250, 2),
-//       Waypoint(150, 250, 2),
-//     ], 100, 400, 100, 400),
-//   ];
-
-//   final List<Station> stations = [
-//     Station(50, 50),
-//     Station(250, 250),
-//   ];
-
-//   final List<DTS> dtsList = [
-//     DTS(200, 50, Colors.blue),
-//     DTS(50, 200, Colors.green),
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'DTS Visualization',
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('Driverless Transport System'),
-//         ),
-//         body: Center(
-//           child: Container(
-//             width: double.maxFinite,
-//             height: 700,
-//             color: Colors.grey[300],
-//             child: CustomPaint(
-//               painter: DTSVisualizationPainter(layers, stations, dtsList),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class DTSVisualizationPainter extends CustomPainter {
-//   final List<Layer> layers;
-//   final List<Station> stations;
-//   final List<DTS> dtsList;
-
-//   DTSVisualizationPainter(this.layers, this.stations, this.dtsList);
+// class CoordinatePainter extends CustomPainter {
+//   final List<Waypoints> coordinates;
+//   var valueList;
+//   //var noDrivingOrderList;
+// //var stationNameData;
+//   CoordinatePainter(this.coordinates, this.valueList,
+//   //this.noDrivingOrderList,
+//  // this.stationNameData
+//   );
 
 //   @override
 //   void paint(Canvas canvas, Size size) {
-//     final paint = Paint();
+//     final paint = Paint()
+//       ..color = blueColor
+//       ..strokeWidth = 1
+//       ..strokeCap = StrokeCap.round;
 
-//     // Draw waypoints in each layer and connect them with lines
-//     for (final layer in layers) {
-//       // Draw lines
-//       for (int i = 0; i < layer.waypoints.length - 1; i++) {
-//         final waypoint1 = layer.waypoints[i];
-//         final waypoint2 = layer.waypoints[i + 1];
-//         paint.color = Colors.black;
-//         paint.strokeWidth = 2.0;
-//         canvas.drawLine(Offset(waypoint1.x, waypoint1.y), Offset(waypoint2.x, waypoint2.y), paint);
+//     // Define the range of your coordinates
+//     final double minX = 56343;
+//     final double maxX = 187040;
+//     final double minY = 142579;
+//     final double maxY = 199628;
+
+//     //Define the range of your dts value
+//     final double minXForDts = 56276;
+//     final double maxXForDts = 176074;
+//     final double minYForDts = 142570;
+//     final double maxYForDts = 198682;
+
+//     // Define the size of the canvas to map the coordinates to
+//     final double canvasWidth = size.width;
+//     final double canvasHeight = size.height;
+    
+//     final Map<String, Offset> coordinateMap = {};
+//     // Map each coordinate to the canvas size
+//     final List<Offset> mappedCoordinates = coordinates.map((coordinate) {
+//       final double x = (coordinate.x! - minX) / (maxX - minX) * canvasWidth;
+//       final double y = (-(coordinate.y! - maxY) / (maxY - minY) * canvasHeight);
+//       /////////////
+//       final offset = Offset(x, y);
+//       if (coordinate.isStation == true && coordinate.stationName != null) {
+//         coordinateMap[coordinate.stationName!] = offset;
 //       }
+//       ///////////
+//       return Offset(x, y);
+//     }).toList();
 
-//       // Draw waypoints
-//       for (final waypoint in layer.waypoints) {
-//         paint.color = Colors.black;
-//         canvas.drawCircle(Offset(waypoint.x, waypoint.y), 4, paint);
-//         // Draw the 'x' mark
-//         canvas.drawLine(
-//           Offset(waypoint.x - 4, waypoint.y - 4),
-//           Offset(waypoint.x + 4, waypoint.y + 4),
-//           paint,
-//         );
-//         canvas.drawLine(
-//           Offset(waypoint.x - 4, waypoint.y + 4),
-//           Offset(waypoint.x + 4, waypoint.y - 4),
-//           paint,
-//         );
-//       }
-//     }
 
-//     // Draw stations
-//     for (final station in stations) {
-//       paint.color = Colors.red;
-//       canvas.drawRect(
-//         Rect.fromCenter(center: Offset(station.x, station.y), width: 20, height: 20),
+    
+
+//     // for station name
+//     TextPainter stationNamePainter;
+//     stationNamePainter = TextPainter(
+//       textAlign: TextAlign.left,
+//       textDirection: TextDirection.ltr,
+//     );
+
+//     for (int i = 0; i < mappedCoordinates.length - 1; i++) {
+//       // Draw the 'x' mark
+//       canvas.drawLine(
+//         Offset(mappedCoordinates[i].dx - 3, mappedCoordinates[i].dy - 3),
+//         Offset(mappedCoordinates[i].dx + 3, mappedCoordinates[i].dy + 3),
 //         paint,
 //       );
-//     }
-
-//     // Draw DTS
-//     for (final dts in dtsList) {
-//       paint.color = dts.color;
-//       canvas.drawCircle(Offset(dts.x, dts.y), 10, paint);
-//     }
-//   }
-
-//   @override
-//   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-//     return false;
-//   }
-// }
-
-
-//new 
-
-// class DTSVisualizationApp extends StatelessWidget {
-//   final List<Layer> layers = [
-//     Layer([
-//       Waypoint(300, 650, 1),
-//       Waypoint(300, 600, 1),
-//       Waypoint(200, 600, 1),
-//       Waypoint(200, 500, 1),
-//       Waypoint(300, 500, 1),
-//       Waypoint(300, 440, 1),
-//       Waypoint(300, 400, 1),
-//     ], 0, 300, 0, 300),
-//     Layer([
-//       Waypoint(300, 500, 4),
-//       Waypoint(340, 470, 4),
-//       Waypoint(420, 470, 4),
-//       Waypoint(440, 450, 4),
-//       Waypoint(500, 450, 4),
-//       Waypoint(550, 450, 4),
-//       Waypoint(610, 450, 4),
-//       Waypoint(630, 470, 4),
-//     ], 0, 300, 0, 300),
-//     Layer([
-//       Waypoint(80, 530, 2),
-//       Waypoint(80, 580, 2),
-//       Waypoint(100, 600, 2),
-//       Waypoint(200, 600, 2),
-//     ], 0, 300, 0, 300),
-//     Layer([
-//       Waypoint(150, 600, 3),
-//       Waypoint(150, 650, 3),
-//     ], 0, 300, 0, 300),
-//   ];
-
-//   final List<Station> stations = [
-//     Station(50, 50),
-//     Station(250, 250),
-//   ];
-
-//   final List<DTS> dtsList = [
-//     DTS(300, 650),
-//     DTS(150, 650),
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'DTS Visualization',
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text('Driverless Transport System'),
-//         ),
-//         body: Center(
-//           child: Container(
-//             width: double.maxFinite,
-//             height: 700,
-//             color: Colors.grey[300],
-//             child: CustomPaint(
-//               painter: DTSVisualizationPainter(layers, stations, dtsList),
+//       canvas.drawLine(
+//         Offset(mappedCoordinates[i].dx - 3, mappedCoordinates[i].dy + 3),
+//         Offset(mappedCoordinates[i].dx + 3, mappedCoordinates[i].dy - 3),
+//         paint,
+//       );
+//       if (coordinates[i].isStation == true) {
+//         paint.color = darkColor;
+//         canvas.drawCircle(
+//             Offset(
+//               mappedCoordinates[i].dx,
+//               mappedCoordinates[i].dy + 12.0,
 //             ),
+//             2,
+//             paint);
+//         // station name style
+//         stationNamePainter.text = TextSpan(
+//           text: coordinates[i].stationName,
+//           style: const TextStyle(
+//             color: blueColor,
+//             fontSize: 8.0,
 //           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class DTSVisualizationPainter extends CustomPainter {
-//   final List<Layer> layers;
-//   final List<Station> stations;
-//   final List<DTS> dtsList;
-
-//   DTSVisualizationPainter(this.layers, this.stations, this.dtsList);
-
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     final paint = Paint();
-
-//     // Draw waypoints in each layer and connect them with lines
-//     for (final layer in layers) {
-//       // Draw lines
-//       for (int i = 0; i < layer.waypoints.length - 1; i++) {
-//         final waypoint1 = layer.waypoints[i];
-//         final waypoint2 = layer.waypoints[i + 1];
-//         paint.color = Colors.black;
-//         paint.strokeWidth = 2.0;
-//         canvas.drawLine(Offset(waypoint1.x, waypoint1.y),
-//             Offset(waypoint2.x, waypoint2.y), paint);
-       
+//         );
+//         // station name position
+//         Offset positionTwo = Offset(
+//           mappedCoordinates[i].dx + 3.0,
+//           mappedCoordinates[i].dy + 8.0,
+//         );
+//         stationNamePainter.layout();
+//         stationNamePainter.paint(canvas, positionTwo);
 //       }
-
-//       // Draw waypoints
-//       // for (final waypoint in layer.waypoints) {
-//       //   paint.color = Colors.black;
-//       //   //canvas.drawCircle(Offset(waypoint.x, waypoint.y), 2, paint);
-//       //   // Draw the 'x' mark
-//       //   canvas.drawLine(
-//       //     Offset(waypoint.x - 4, waypoint.y - 4),
-//       //     Offset(waypoint.x + 4, waypoint.y + 4),
-//       //     paint,
-//       //   );
-//       //   canvas.drawLine(
-//       //     Offset(waypoint.x - 4, waypoint.y + 4),
-//       //     Offset(waypoint.x + 4, waypoint.y - 4),
-//       //     paint,
-//       //   );
-//       // }
 //     }
 
-//     TextPainter painter;
-//     painter = TextPainter(
+//     var mappedCoordinatesNew = valueList.map((coordinate) {
+//       final double x = (coordinate['x'] - minXForDts) /
+//           (maxXForDts - minXForDts) *
+//           canvasWidth;
+//       final double y = (-(coordinate['y'] - maxYForDts) /
+//           (maxYForDts - minYForDts) *
+//           canvasHeight);
+//       return Offset(x, y);
+//     }).toList();
+
+//     // var mappedCoordinatesForDrivingOrderFalse = noDrivingOrderList.map((coordinate) {
+//     //   final double x = (coordinate['x'] - minXForDts) /
+//     //       (maxXForDts - minXForDts) *
+//     //       canvasWidth;
+//     //   final double y = (-(coordinate['y'] - maxYForDts) /
+//     //       (maxYForDts - minYForDts) *
+//     //       canvasHeight);
+//     //   return Offset(x, y);
+//     // }).toList();
+
+//     // for source circle text
+//     TextPainter sourceCircleNumberPainter;
+//     sourceCircleNumberPainter = TextPainter(
+//       textAlign: TextAlign.center,
+//       textDirection: TextDirection.ltr,
+//     );
+//     // List saveDataForSource = [];
+//     //    for (var i = 0; i < valueList.length - 1; i++) {
+//     //      // if (valueList[i]['destination'] != null ) {
+//     //         for (int j = 0; j < coordinates.length - 1; j++) {
+//     //       if (coordinates[j].stationName == valueList[i]['destination']) {
+//     //        // paint.color = blueColor;
+//     //        if (saveDataForSource.length>4) {
+//     //          for (var listData in saveDataForSource) {
+//     //        if (listData['destination']!=valueList[i]['destination']) {
+//     //          saveDataForSource.remove(i);
+//     //          saveDataForSource.add({'id':valueList[i]['id'],'x':mappedCoordinates[j].dx - 6,'y':mappedCoordinates[j].dy + 20,'destination':valueList[i]['destination']});
+//     //          if (valueList[i]['id']==1) paint.color =  Colors.black ;   
+//     //         if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
+//     //         if (valueList[i]['id']==3) paint.color =  Colors.green ;
+//     //         if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
+//     //         canvas.drawCircle(
+//     //             Offset(
+//     //                 saveDataForSource[i]['x'], saveDataForSource[i]['y']),
+//     //             10,
+//     //             paint);
+//     //         // for source circle style
+//     //         sourceCircleNumberPainter.text = TextSpan(
+//     //           text: '${saveDataForSource[i]['id']}',
+//     //           style: const TextStyle(
+//     //               color: lightColor,
+//     //               fontSize: 10.0,
+//     //               fontWeight: FontWeight.w600),
+//     //         );
+//     //         // for source circle position
+//     //         Offset position = Offset(
+//     //           saveDataForSource[i]['x'] - 4,
+//     //           saveDataForSource[i]['y'] - 8.0,
+//     //         );
+//     //         sourceCircleNumberPainter.layout();
+//     //         sourceCircleNumberPainter.paint(canvas, position);
+//     //        }
+//     //        }
+//     //        }else{
+//     //         saveDataForSource.add({'id':valueList[i]['id'],'x':mappedCoordinates[j].dx - 6,'y':mappedCoordinates[j].dy + 20,'destination':valueList[i]['destination']});
+//     //         if (valueList[i]['id']==1) paint.color =  Colors.black ;   
+//     //         if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
+//     //         if (valueList[i]['id']==3) paint.color =  Colors.green ;
+//     //         if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
+//     //         canvas.drawCircle(
+//     //             Offset(
+//     //                 saveDataForSource[i]['x'], saveDataForSource[i]['y']),
+//     //             10,
+//     //             paint);
+//     //         // for source circle style
+//     //         sourceCircleNumberPainter.text = TextSpan(
+//     //           text: '${saveDataForSource[i]['id']}',
+//     //           style: const TextStyle(
+//     //               color: lightColor,
+//     //               fontSize: 10.0,
+//     //               fontWeight: FontWeight.w600),
+//     //         );
+//     //         // for source circle position
+//     //         Offset position = Offset(
+//     //           saveDataForSource[i]['x'] - 4,
+//     //           saveDataForSource[i]['y'] - 8.0,
+//     //         );
+//     //         sourceCircleNumberPainter.layout();
+//     //         sourceCircleNumberPainter.paint(canvas, position);
+//     //        }                  
+//     //       }
+//     //     }
+//     //    // }   
+//     // }
+     
+//   //   for (var i = 0; i < valueList.length - 1; i++) {
+//   //   bool exists = coordinates.any((element) => element.stationName == valueList[i]['destination']);
+//   //   List a =[];
+//   //   if (exists) {
+//   //     int index = coordinates.indexWhere((element) => element.stationName == valueList[i]['destination']);
+//   //    if (a.contains(valueList[i]['destination'])) {
+//   //    }else{
+//   //     a.add(valueList[i]['destination']);    
+//   //     paint.color = blueColor;
+//   //           canvas.drawCircle(
+//   //               Offset(
+//   //                   mappedCoordinates[index].dx - 6, mappedCoordinates[index].dy + 20),
+//   //               10,
+//   //               paint);
+//   //           // for source circle style
+//   //           sourceCircleNumberPainter.text = TextSpan(
+//   //             text: '${valueList[i]['id']}',
+//   //             style: const TextStyle(
+//   //                 color: lightColor,
+//   //                 fontSize: 10.0,
+//   //                 fontWeight: FontWeight.w600),
+//   //           );
+//   //           // for source circle position
+//   //           Offset position = Offset(
+//   //             mappedCoordinates[index].dx - 10,
+//   //             mappedCoordinates[index].dy + 12.0,
+//   //           );
+//   //           sourceCircleNumberPainter.layout();
+//   //           sourceCircleNumberPainter.paint(canvas, position);
+//   //    }  
+//   //   } 
+//   // }
+
+
+//         //old
+//     //      for (var i = 0; i < valueList.length - 1; i++) {
+//     //       if (valueList[i]['source'] != null ) {
+//     //         for (int j = 0; j < mappedCoordinates.length - 1; j++) {
+//     //       if (coordinates[j].stationName == valueList[i]['destination']) {
+//     //      // if (stationNameData.containsKey(valueList[i]['destination'])){
+//     //         paint.color = blueColor;
+//     //         canvas.drawCircle(
+//     //             Offset(
+//     //                 mappedCoordinates[j].dx - 6, mappedCoordinates[j].dy + 20),
+//     //             10,
+//     //             paint);
+//     //         // for source circle style
+//     //         sourceCircleNumberPainter.text = TextSpan(
+//     //           text: '${valueList[i]['id']}',
+//     //           style: const TextStyle(
+//     //               color: lightColor,
+//     //               fontSize: 10.0,
+//     //               fontWeight: FontWeight.w600),
+//     //         );
+//     //         // for source circle position
+//     //         Offset position = Offset(
+//     //           mappedCoordinates[j].dx - 10,
+//     //           mappedCoordinates[j].dy + 12.0,
+//     //         );
+//     //         sourceCircleNumberPainter.layout();
+//     //         sourceCircleNumberPainter.paint(canvas, position);
+//     //      // }
+//     //       }
+//     //     }
+//     //     }   
+//     // }
+
+
+//     for (var i = 0; i < valueList.length; i++) {
+//       if (valueList[i]['source'] != null) {
+//         final stationOffset = coordinateMap[valueList[i]['destination']];
+//         if (stationOffset != null) {
+//           if (valueList[i]['id']==1) paint.color =  Colors.black ;   
+//       if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
+//       if (valueList[i]['id']==3) paint.color =  Colors.green ;
+//       if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
+//           canvas.drawCircle(
+//               Offset(stationOffset.dx - 6, stationOffset.dy + 20),
+//               10,
+//               paint);
+//           sourceCircleNumberPainter.text = TextSpan(
+//             text: '${valueList[i]['id']}',
+//             style: const TextStyle(
+//                 color: lightColor,
+//                 fontSize: 10.0,
+//                 fontWeight: FontWeight.w600),
+//           );
+//           Offset position = Offset(
+//             stationOffset.dx - 10,
+//             stationOffset.dy + 12.0,
+//           );
+//           sourceCircleNumberPainter.layout();
+//           sourceCircleNumberPainter.paint(canvas, position);
+//         }
+//       }
+//     }
+
+//     // for source extra text
+//     // TextPainter extra;
+//     // extra = TextPainter(
+//     //   textAlign: TextAlign.center,
+//     //   textDirection: TextDirection.ltr,
+//     // );
+
+//     // for (var i = 0; i < noDrivingOrderList.length - 1; i++) {
+//     //   paint.color = Colors.red;
+//     //         canvas.drawCircle(
+//     //             Offset(
+//     //                 mappedCoordinatesForDrivingOrderFalse[i].dx - 6, mappedCoordinatesForDrivingOrderFalse[i].dy + 20),
+//     //             10,
+//     //             paint);
+//     //         // for source circle style
+//     //         extra.text = TextSpan(
+//     //           text: '${noDrivingOrderList[i]['id']}',
+//     //           style: const TextStyle(
+//     //               color: lightColor,
+//     //               fontSize: 10.0,
+//     //               fontWeight: FontWeight.w600),
+//     //         );
+//     //         // for source circle position
+//     //         Offset position = Offset(
+//     //           mappedCoordinatesForDrivingOrderFalse[i].dx - 10,
+//     //           mappedCoordinatesForDrivingOrderFalse[i].dy + 12.0,
+//     //         );
+//     //         extra.layout();
+//     //         extra.paint(canvas, position);
+//     // }
+//     // for station number
+//     TextPainter stationNumberPainter;
+//     stationNumberPainter = TextPainter(
 //       textAlign: TextAlign.center,
 //       textDirection: TextDirection.ltr,
 //     );
 
-//     var i = 0;
-//     // Draw stations
-//     for (final station in stations) {
-//       paint.color = Colors.blue;
+//     for (int i = 0; i < mappedCoordinatesNew.length; i++) {
+//      // for (var i = 0; i < valueList.length - 1; i++) {
+//       if (valueList[i]['id']==1) paint.color =  Colors.black ;   
+//       if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
+//       if (valueList[i]['id']==3) paint.color =  Colors.green ;
+//       if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
+//        // if ( valueList[i]['hasDrivingOrder'] == true){
+//       // paint.color =  Colors.blue;
 //       canvas.drawRect(
 //         Rect.fromCenter(
-//             center: Offset(station.x, station.y), width: 25, height: 25),
+//             center: Offset(
+//                 mappedCoordinatesNew[i].dx - 20, mappedCoordinatesNew[i].dy),
+//             // center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
+//             width: 25,
+//             height: 16),
 //         paint,
 //       );
-//       // for station number
-//       i++;
-//       painter.text = TextSpan(
-//         text: '$i',
+//       stationNumberPainter.text = TextSpan(
+//         text: '${valueList[i]['id']}',
 //         style: const TextStyle(
-//           color: Colors.white,
-//           fontSize: 20.0,
-//         ),
+//             color: lightColor, fontSize: 13.0, fontWeight: FontWeight.w600),
 //       );
 //       Offset position = Offset(
-//         station.x - 4.0,
-//         station.y - 12.0,
+//         mappedCoordinatesNew[i].dx - 22.0,
+//         mappedCoordinatesNew[i].dy - 8.0,
 //       );
-//       painter.layout();
-//       painter.paint(canvas, position);
+//       stationNumberPainter.layout();
+//       stationNumberPainter.paint(canvas, position);
+//      // }else{
+//      // paint.color = Colors.red;
+      
+//       // canvas.drawRect(
+//       //   Rect.fromCenter(
+//       //       center: Offset(
+//       //           mappedCoordinatesNew[i].dx - 20, mappedCoordinatesNew[i].dy),
+//       //       // center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
+//       //       width: 25,
+//       //       height: 16),
+//       //   paint,
+//       // );
+//       // stationNumberPainter.text = TextSpan(
+//       //   text: '${valueList[i]['id']}',
+//       //   style: const TextStyle(
+//       //       color: lightColor, fontSize: 13.0, fontWeight: FontWeight.w600),
+//       // );
+//       // Offset position = Offset(
+//       //   mappedCoordinatesNew[i].dx - 22.0,
+//       //   mappedCoordinatesNew[i].dy - 8.0,
+//       // );
+//       // stationNumberPainter.layout();
+//       // stationNumberPainter.paint(canvas, position);
+//     //  }
+//    // }
 //     }
-
-//     // Draw DTS
-//     for (final dts in dtsList) {
-//       paint.color = Colors.black;
-//       canvas.drawCircle(Offset(dts.x, dts.y), 4, paint);
-//     }
 //   }
 
 //   @override
-//   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-//     return false;
+//   bool shouldRepaint(CustomPainter oldDelegate) {
+//     return true;
 //   }
 // }
-
-
-// class WebSocketScreen extends StatefulWidget {
-//   const WebSocketScreen({super.key});
-
-//   @override
-//   State<WebSocketScreen> createState() => _WebSocketScreenState();
-// }
-
-// class _WebSocketScreenState extends State<WebSocketScreen> {
-//   final channel = WebSocketChannel.connect(
-//     //  Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade')
-//       Uri.parse('ws://0.0.0.0:5000/fts-data')
-//       );
-//   Box? socketBox;
-//   @override
-//   void initState() {
-   
-//     socketBox = Hive.box('socketBox');
-//      strem();
-//     super.initState();
-//   }
-// var ftsFetchAllData = [];
-//   strem() async {
-//    try {
-//       await channel.ready;
-//     channel.stream.listen((message) {
-//       //  channel.sink.add(message);
-//       //  ftsFetchAllData.add(message);
-//       // var data = utf8.decode(message);
-//         setState(() {
-//          // ftsFetchAllData.add(message);
-//           socketBox!.add(message);
-//         });
-//     });
-//    } catch (e) {
-//     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-//      print('Error fetching data: $e');
-//    }
-   
-//   }
-
-//   @override
-//   void dispose() {
-//     channel.sink.close();
-//     super.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     print(socketBox?.keys.toList().length);
-//     return Scaffold(
-//       // body:  ListView.builder(
-//       //         itemCount: ftsFetchAllData.length,
-//       //         itemBuilder: (context,index){
-//       //        return ListTile(
-//       //         title: Text('${ftsFetchAllData[index]}'),
-//       //        );
-//       //         })
-//       body:  ValueListenableBuilder(
-//         valueListenable: Hive.box('socketBox').listenable(),
-//          builder: (context,box,widget){
-//           return ListView.builder(
-//               itemCount: socketBox?.keys.toList().length,
-//               itemBuilder: (context,index){
-//              return ListTile(
-//               title: Text('${socketBox?.getAt(index)}'),
-//              );
-//               });
-//          })
-        
-     
-//     );
-//   }
-// }
-
-
-//                 for (var i = 0; i < 13; i++) {
-//    socketData.add(socketBox!.getAt(i)) ;
-// print(socketData);
-//   }
-
-                // print(socketBox?.getAt(index));
-                //  var  check =[];
-                //    for (var i = 0; i < wayPointsAllData.length; i++) {
-                //      if (layersAllData[index].xMax! >= wayPointsAllData[i].x! && layersAllData[index].xMin! <= wayPointsAllData[i].x!) {
-                //       check.add(wayPointsAllData[i].x!);
-                //     }
-                //    }
-                //   print(check.length);
-                //   print(check);
-                //  wayPointsAllData.sort((a, b) => a.y!.compareTo(b.y as num),);
-
-                // wayPointsAllData.forEach((element) {print(element.y);});
-              
+         

@@ -5,11 +5,9 @@ import 'package:flutter/material.dart';
 class CoordinatePainter extends CustomPainter {
   final List<Waypoints> coordinates;
   var valueList;
-  //var noDrivingOrderList;
-//var stationNameData;
-  CoordinatePainter(this.coordinates, this.valueList,
-  //this.noDrivingOrderList,
- // this.stationNameData
+  CoordinatePainter(
+    this.coordinates,
+    this.valueList,
   );
 
   @override
@@ -35,15 +33,17 @@ class CoordinatePainter extends CustomPainter {
     final double canvasWidth = size.width;
     final double canvasHeight = size.height;
 
+    final Map<String, Offset> coordinateMap = {};
     // Map each coordinate to the canvas size
     final List<Offset> mappedCoordinates = coordinates.map((coordinate) {
       final double x = (coordinate.x! - minX) / (maxX - minX) * canvasWidth;
       final double y = (-(coordinate.y! - maxY) / (maxY - minY) * canvasHeight);
+      final offset = Offset(x, y);
+      if (coordinate.isStation == true && coordinate.stationName != null) {
+        coordinateMap[coordinate.stationName!] = offset;
+      }
       return Offset(x, y);
     }).toList();
-
-
-    
 
     // for station name
     TextPainter stationNamePainter;
@@ -101,188 +101,38 @@ class CoordinatePainter extends CustomPainter {
       return Offset(x, y);
     }).toList();
 
-    // var mappedCoordinatesForDrivingOrderFalse = noDrivingOrderList.map((coordinate) {
-    //   final double x = (coordinate['x'] - minXForDts) /
-    //       (maxXForDts - minXForDts) *
-    //       canvasWidth;
-    //   final double y = (-(coordinate['y'] - maxYForDts) /
-    //       (maxYForDts - minYForDts) *
-    //       canvasHeight);
-    //   return Offset(x, y);
-    // }).toList();
-
     // for source circle text
     TextPainter sourceCircleNumberPainter;
     sourceCircleNumberPainter = TextPainter(
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
     );
-    // List saveDataForSource = [];
-    //    for (var i = 0; i < valueList.length - 1; i++) {
-    //      // if (valueList[i]['destination'] != null ) {
-    //         for (int j = 0; j < coordinates.length - 1; j++) {
-    //       if (coordinates[j].stationName == valueList[i]['destination']) {
-    //        // paint.color = blueColor;
-    //        if (saveDataForSource.length>4) {
-    //          for (var listData in saveDataForSource) {
-    //        if (listData['destination']!=valueList[i]['destination']) {
-    //          saveDataForSource.remove(i);
-    //          saveDataForSource.add({'id':valueList[i]['id'],'x':mappedCoordinates[j].dx - 6,'y':mappedCoordinates[j].dy + 20,'destination':valueList[i]['destination']});
-    //          if (valueList[i]['id']==1) paint.color =  Colors.black ;   
-    //         if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
-    //         if (valueList[i]['id']==3) paint.color =  Colors.green ;
-    //         if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
-    //         canvas.drawCircle(
-    //             Offset(
-    //                 saveDataForSource[i]['x'], saveDataForSource[i]['y']),
-    //             10,
-    //             paint);
-    //         // for source circle style
-    //         sourceCircleNumberPainter.text = TextSpan(
-    //           text: '${saveDataForSource[i]['id']}',
-    //           style: const TextStyle(
-    //               color: lightColor,
-    //               fontSize: 10.0,
-    //               fontWeight: FontWeight.w600),
-    //         );
-    //         // for source circle position
-    //         Offset position = Offset(
-    //           saveDataForSource[i]['x'] - 4,
-    //           saveDataForSource[i]['y'] - 8.0,
-    //         );
-    //         sourceCircleNumberPainter.layout();
-    //         sourceCircleNumberPainter.paint(canvas, position);
-    //        }
-    //        }
-    //        }else{
-    //         saveDataForSource.add({'id':valueList[i]['id'],'x':mappedCoordinates[j].dx - 6,'y':mappedCoordinates[j].dy + 20,'destination':valueList[i]['destination']});
-    //         if (valueList[i]['id']==1) paint.color =  Colors.black ;   
-    //         if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
-    //         if (valueList[i]['id']==3) paint.color =  Colors.green ;
-    //         if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
-    //         canvas.drawCircle(
-    //             Offset(
-    //                 saveDataForSource[i]['x'], saveDataForSource[i]['y']),
-    //             10,
-    //             paint);
-    //         // for source circle style
-    //         sourceCircleNumberPainter.text = TextSpan(
-    //           text: '${saveDataForSource[i]['id']}',
-    //           style: const TextStyle(
-    //               color: lightColor,
-    //               fontSize: 10.0,
-    //               fontWeight: FontWeight.w600),
-    //         );
-    //         // for source circle position
-    //         Offset position = Offset(
-    //           saveDataForSource[i]['x'] - 4,
-    //           saveDataForSource[i]['y'] - 8.0,
-    //         );
-    //         sourceCircleNumberPainter.layout();
-    //         sourceCircleNumberPainter.paint(canvas, position);
-    //        }                  
-    //       }
-    //     }
-    //    // }   
-    // }
-     
-  //   for (var i = 0; i < valueList.length - 1; i++) {
-  //   bool exists = coordinates.any((element) => element.stationName == valueList[i]['destination']);
-  //   List a =[];
-  //   if (exists) {
-  //     int index = coordinates.indexWhere((element) => element.stationName == valueList[i]['destination']);
-  //    if (a.contains(valueList[i]['destination'])) {
-  //    }else{
-  //     a.add(valueList[i]['destination']);    
-  //     paint.color = blueColor;
-  //           canvas.drawCircle(
-  //               Offset(
-  //                   mappedCoordinates[index].dx - 6, mappedCoordinates[index].dy + 20),
-  //               10,
-  //               paint);
-  //           // for source circle style
-  //           sourceCircleNumberPainter.text = TextSpan(
-  //             text: '${valueList[i]['id']}',
-  //             style: const TextStyle(
-  //                 color: lightColor,
-  //                 fontSize: 10.0,
-  //                 fontWeight: FontWeight.w600),
-  //           );
-  //           // for source circle position
-  //           Offset position = Offset(
-  //             mappedCoordinates[index].dx - 10,
-  //             mappedCoordinates[index].dy + 12.0,
-  //           );
-  //           sourceCircleNumberPainter.layout();
-  //           sourceCircleNumberPainter.paint(canvas, position);
-  //    }  
-  //   } 
-  // }
 
-
-        //old
-         for (var i = 0; i < valueList.length - 1; i++) {
-          if (valueList[i]['source'] != null ) {
-            for (int j = 0; j < mappedCoordinates.length - 1; j++) {
-          if (coordinates[j].stationName == valueList[i]['destination']) {
-         // if (stationNameData.containsKey(valueList[i]['destination'])){
-            paint.color = blueColor;
-            canvas.drawCircle(
-                Offset(
-                    mappedCoordinates[j].dx - 6, mappedCoordinates[j].dy + 20),
-                10,
-                paint);
-            // for source circle style
-            sourceCircleNumberPainter.text = TextSpan(
-              text: '${valueList[i]['id']}',
-              style: const TextStyle(
-                  color: lightColor,
-                  fontSize: 10.0,
-                  fontWeight: FontWeight.w600),
-            );
-            // for source circle position
-            Offset position = Offset(
-              mappedCoordinates[j].dx - 10,
-              mappedCoordinates[j].dy + 12.0,
-            );
-            sourceCircleNumberPainter.layout();
-            sourceCircleNumberPainter.paint(canvas, position);
-         // }
-          }
+    for (var i = 0; i < valueList.length; i++) {
+      if (valueList[i]['source'] != null) {
+        final stationOffset = coordinateMap[valueList[i]['destination']];
+        if (stationOffset != null) {
+          if (valueList[i]['id'] == 1) paint.color = Colors.black;
+          if (valueList[i]['id'] == 2) paint.color = Colors.deepPurpleAccent;
+          if (valueList[i]['id'] == 3) paint.color = Colors.green;
+          if (valueList[i]['id'] == 4) paint.color = Colors.deepOrange;
+          canvas.drawCircle(
+              Offset(stationOffset.dx - 6, stationOffset.dy + 20), 10, paint);
+          sourceCircleNumberPainter.text = TextSpan(
+            text: '${valueList[i]['id']}',
+            style: const TextStyle(
+                color: lightColor, fontSize: 10.0, fontWeight: FontWeight.w600),
+          );
+          Offset position = Offset(
+            stationOffset.dx - 10,
+            stationOffset.dy + 12.0,
+          );
+          sourceCircleNumberPainter.layout();
+          sourceCircleNumberPainter.paint(canvas, position);
         }
-        }   
+      }
     }
 
-    // for source extra text
-    // TextPainter extra;
-    // extra = TextPainter(
-    //   textAlign: TextAlign.center,
-    //   textDirection: TextDirection.ltr,
-    // );
-
-    // for (var i = 0; i < noDrivingOrderList.length - 1; i++) {
-    //   paint.color = Colors.red;
-    //         canvas.drawCircle(
-    //             Offset(
-    //                 mappedCoordinatesForDrivingOrderFalse[i].dx - 6, mappedCoordinatesForDrivingOrderFalse[i].dy + 20),
-    //             10,
-    //             paint);
-    //         // for source circle style
-    //         extra.text = TextSpan(
-    //           text: '${noDrivingOrderList[i]['id']}',
-    //           style: const TextStyle(
-    //               color: lightColor,
-    //               fontSize: 10.0,
-    //               fontWeight: FontWeight.w600),
-    //         );
-    //         // for source circle position
-    //         Offset position = Offset(
-    //           mappedCoordinatesForDrivingOrderFalse[i].dx - 10,
-    //           mappedCoordinatesForDrivingOrderFalse[i].dy + 12.0,
-    //         );
-    //         extra.layout();
-    //         extra.paint(canvas, position);
-    // }
     // for station number
     TextPainter stationNumberPainter;
     stationNumberPainter = TextPainter(
@@ -291,13 +141,12 @@ class CoordinatePainter extends CustomPainter {
     );
 
     for (int i = 0; i < mappedCoordinatesNew.length; i++) {
-     // for (var i = 0; i < valueList.length - 1; i++) {
-      if (valueList[i]['id']==1) paint.color =  Colors.black ;   
-      if (valueList[i]['id']==2) paint.color =  Colors.deepPurpleAccent ;
-      if (valueList[i]['id']==3) paint.color =  Colors.green ;
-      if (valueList[i]['id']==4) paint.color =  Colors.deepOrange ;
-       // if ( valueList[i]['hasDrivingOrder'] == true){
-      // paint.color =  Colors.blue;
+      // for (var i = 0; i < valueList.length - 1; i++) {
+      if (valueList[i]['id'] == 1) paint.color = Colors.black;
+      if (valueList[i]['id'] == 2) paint.color = Colors.deepPurpleAccent;
+      if (valueList[i]['id'] == 3) paint.color = Colors.green;
+      if (valueList[i]['id'] == 4) paint.color = Colors.deepOrange;
+
       canvas.drawRect(
         Rect.fromCenter(
             center: Offset(
@@ -318,31 +167,6 @@ class CoordinatePainter extends CustomPainter {
       );
       stationNumberPainter.layout();
       stationNumberPainter.paint(canvas, position);
-     // }else{
-     // paint.color = Colors.red;
-      
-      // canvas.drawRect(
-      //   Rect.fromCenter(
-      //       center: Offset(
-      //           mappedCoordinatesNew[i].dx - 20, mappedCoordinatesNew[i].dy),
-      //       // center: Offset(mappedCoordinates[i].dx, mappedCoordinates[i].dy),
-      //       width: 25,
-      //       height: 16),
-      //   paint,
-      // );
-      // stationNumberPainter.text = TextSpan(
-      //   text: '${valueList[i]['id']}',
-      //   style: const TextStyle(
-      //       color: lightColor, fontSize: 13.0, fontWeight: FontWeight.w600),
-      // );
-      // Offset position = Offset(
-      //   mappedCoordinatesNew[i].dx - 22.0,
-      //   mappedCoordinatesNew[i].dy - 8.0,
-      // );
-      // stationNumberPainter.layout();
-      // stationNumberPainter.paint(canvas, position);
-    //  }
-   // }
     }
   }
 
