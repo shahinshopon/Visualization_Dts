@@ -117,7 +117,6 @@ class CoordinatePainter extends CustomPainter {
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
     );
-    //new
     // List saveDataForSource = [];
     //    for (var i = 0; i < valueList.length - 1; i++) {
     //      // if (valueList[i]['destination'] != null ) {
